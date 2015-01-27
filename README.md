@@ -23,7 +23,7 @@ npm install semistandard
 ## Rules
 Importantly:
 - **semicolons**
-Check [feross/standard][1] for the rest of the rules.
+- Check [feross/standard][1] for the rest of the rules.
 
 ### What you might do if you're clever
 
