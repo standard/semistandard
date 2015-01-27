@@ -54,4 +54,4 @@ Check [feross/standard][1] for the rest of the rules.
 
 See [feross/standard](1) for more information. In fact, you should probably just use the `standard` module instead.
 
-[1](https://github.com/feross/standard)
+[1]: https://github.com/feross/standard
