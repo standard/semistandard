@@ -4,7 +4,7 @@
   "description": "All the goodness of `feross/standard` with semicolons sprinkled on top.",
   "main": "postinstall.js",
   "bin": {
-    "semistandard": "cmd.js"
+    "semistandard": "bin/cmd.js"
   },
   "scripts": {
     "test": "node ./bin/cmd.js",
