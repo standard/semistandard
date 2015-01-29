@@ -1,6 +1,6 @@
 {
   "name": "semistandard",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "All the goodness of `feross/standard` with semicolons sprinkled on top.",
   "main": "postinstall.js",
   "bin": {
@@ -14,7 +14,7 @@
   "license": "MIT",
   "dependencies": {
     "replace": "^0.3.0",
-    "standard": "1.x.x"
+    "standard": "2.x.x"
   },
   "repository": {
     "type": "git",
