@@ -1,76 +1,32 @@
-# JavaScript Standard Style
+# JavaScript Semi-Standard Style
 [![travis][travis-image]][travis-url]
 [![npm][npm-image]][npm-url]
 [![downloads][downloads-image]][downloads-url]
 
-[travis-image]: https://img.shields.io/travis/feross/standard.svg?style=flat
-[travis-url]: https://travis-ci.org/feross/standard
-[npm-image]: https://img.shields.io/npm/v/standard.svg?style=flat
-[npm-url]: https://npmjs.org/package/standard
-[downloads-image]: https://img.shields.io/npm/dm/standard.svg?style=flat
-[downloads-url]: https://npmjs.org/package/standard
+[travis-image]: https://img.shields.io/travis/flet/semistandard.svg?style=flat
+[travis-url]: https://travis-ci.org/flet/semistandard
+[npm-image]: https://img.shields.io/npm/v/semistandard.svg?style=flat
+[npm-url]: https://npmjs.org/package/semistandard
+[downloads-image]: https://img.shields.io/npm/dm/semistandard.svg?style=flat
+[downloads-url]: https://npmjs.org/package/semistandard
 
-### One Style to Rule Them All
 
-No decisions to make, no `.jshintrc` or `.jscs` files to manage. It just works.
+
+
+### One Semicolon for the Dark Lord on his dark throne
+
+All the goodness of [feross/standard](https://github.com/feross/standard) with semicolons sprinkled on top.
 
 ## Install
 
 ```bash
-npm install standard
+npm install semistandard -g
 ```
 
 ## Rules
-
-- **2 spaces** for indentation
-- **Single quotes** for strings
-  - Except to avoid escaping like `"in this lil' string"`
-- **Unix line breaks** (LF)
-- **No unused variables** (this one catches *so many* bugs and typos!)
-- **No semicolons**
-  - [It's totally][1] [fine.][2] *[Really!][3]*
-- **Never start a line with `(` or `[`**
-  - This is the **only** gotcha with omitting semicolons – *automatically checked for you!*
-  - Always prefix with `;` like this `;[1, 2, 3].join(' ')`
-- Spaces after keywords
-  - `if (condition) { ... }`
-- Spaces before/after function definitions
-  - `function name (arg1, arg2) { ... }`
-- Always name the context variable `self`
-  - `var self = this`
-  - Checks for accidental use of [`window.self`][4] when `var self = this` is omitted
-- Always use `===` instead of `==`
-  - `obj == null` is allowed for succinctness (`obj === null || obj === undefined`)
-- Always handle the node.js `err` function parameter
-
-[1]: http://blog.izs.me/post/2353458699/an-open-letter-to-javascript-leaders-regarding
-[2]: http://inimino.org/~inimino/blog/javascript_semicolons
-[3]: https://github.com/maxogden/messages/issues/18
-[4]: https://developer.mozilla.org/en-US/docs/Web/API/Window.self
-
-To get a better idea, take a look at
-[a sample file](https://github.com/feross/bittorrent-dht/blob/master/client.js) written
-in JavaScript Standard Style.
-
-## Usage
-
-The easiest way to use JavaScript Standard Style to check your code is to install it
-globally as a Node command line program. To do so, simply run the following command in
-your terminal (flag `-g` installs `standard` globally on your system, omit it if you want
-to install in the current working directory):
-
-```bash
-npm install standard -g
-```
-
-After you've done that you should be able to use the `standard` program. The simplest use
-case would be checking the style of all JavaScript files in the current working directory:
-
-```
-$ standard
-Error: Code style check failed:
-  lib/torrent.js:950:11: Expected '===' and instead saw '=='.
-```
+Importantly:
+- **semicolons**
+- Check [feross/standard][1] for the rest of the rules.
 
 ### What you might do if you're clever
 
@@ -80,10 +36,10 @@ Error: Code style check failed:
   {
     "name": "my-cool-package",
     "devDependencies": {
-      "standard": "*"
+      "semistandard": "*"
     },
     "scripts": {
-      "test": "standard && node my-normal-tests.js"
+      "test": "semistandard && node my-normal-tests-littered-with-semicolons.js"
     }
   }
   ```
@@ -96,7 +52,7 @@ Error: Code style check failed:
     lib/torrent.js:950:11: Expected '===' and instead saw '=='.
   ```
 
-3. Never give style feedback on a pull request again!
+3. Never give style feedback on a pull request again! (unless its about semicolons)
 
 ## FAQ
 
@@ -175,9 +131,6 @@ with a `// jscs:disable validateIndentation` comment. Re-enable with a
 
 No. Use `jshint` or `jscs` directly if you want that.
 
-Pro tip: Just use `standard` and move on. There are actual real problems that you could
-spend your time solving :p
+See [feross/standard](1) for more information. In fact, you should probably just use the `standard` module instead.
 
-## License
-
-MIT. Copyright (c) [Feross Aboukhadijeh](http://feross.org).
+[1]: https://github.com/feross/standard

@@ -19,11 +19,7 @@ var TMP = path.join(__dirname, '..', 'tmp')
 var STANDARD = path.join(__dirname, 'cmd.js')
 
 var urls = [
-  'https://github.com/feross/webtorrent.git',
-  'https://github.com/feross/bittorrent-tracker.git',
-  'https://github.com/feross/bittorrent-dht.git',
-  'https://github.com/feross/buffer.git',
-  'https://github.com/mafintosh/level-temp.git'
+  'https://github.com/dcposch/scramble-mail-repo.git'
 ]
 
 var modules = {}

@@ -1,17 +1,16 @@
 {
-  "name": "standard",
-  "description": "JavaScript Standard Style",
-  "version": "2.1.1",
-  "author": {
-    "name": "Feross Aboukhadijeh",
-    "email": "feross@feross.org",
-    "url": "http://feross.org/"
-  },
+  "name": "semistandard",
+  "description": "All the goodness of `feross/standard` with semicolons sprinkled on top.",
+  "version": "2.1.0",
   "bin": {
-    "standard": "./bin/cmd.js"
+    "semistandard": "./bin/cmd.js"
   },
-  "bugs": {
-    "url": "https://github.com/feross/standard/issues"
+  "author": "Dan Flettre",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Flet/semistandard.git"
   },
   "dependencies": {
     "eslint": "^0.13.0",
@@ -29,10 +28,10 @@
     "run-parallel": "^1.0.0",
     "run-series": "^1.0.2"
   },
-  "homepage": "https://github.com/feross/standard",
   "keywords": [
     "policy",
-    "code style",
+    "code",
+    "style",
     "style",
     "code",
     "lint",
@@ -44,19 +43,17 @@
     "standard",
     "quality",
     "checker",
-    "code standards"
+    "code",
+    "standards",
+    "semicolon",
+    "bikeshed"
   ],
-  "license": "MIT",
-  "main": "index.js",
   "preferGlobal": true,
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/feross/standard.git"
-  },
   "scripts": {
-    "test": "./bin/cmd.js && node ./bin/test.js"
+    "test": "node ./bin/test.js"
   },
-  "standard": {
-    "ignore": "tmp/**"
-  }
+  "bugs": {
+    "url": "https://github.com/Flet/semistandard/issues"
+  },
+  "homepage": "https://github.com/Flet/semistandard"
 }
