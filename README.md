@@ -1,29 +1,76 @@
-# JavaScript Semi-Standard Style
+# JavaScript Standard Style
 [![travis][travis-image]][travis-url]
 [![npm][npm-image]][npm-url]
 [![downloads][downloads-image]][downloads-url]
 
-[travis-image]: https://img.shields.io/travis/flet/semistandard.svg?style=flat
-[travis-url]: https://travis-ci.org/flet/semistandard
-[npm-image]: https://img.shields.io/npm/v/semistandard.svg?style=flat
-[npm-url]: https://npmjs.org/package/semistandard
-[downloads-image]: https://img.shields.io/npm/dm/semistandard.svg?style=flat
-[downloads-url]: https://npmjs.org/package/semistandard
+[travis-image]: https://img.shields.io/travis/feross/standard.svg?style=flat
+[travis-url]: https://travis-ci.org/feross/standard
+[npm-image]: https://img.shields.io/npm/v/standard.svg?style=flat
+[npm-url]: https://npmjs.org/package/standard
+[downloads-image]: https://img.shields.io/npm/dm/standard.svg?style=flat
+[downloads-url]: https://npmjs.org/package/standard
 
-### One Semicolon for the Dark Lord on his dark throne
+### One Style to Rule Them All
 
-All the goodness of [feross/standard](https://github.com/feross/standard) with semicolons sprinkled on top.
+No decisions to make, no `.jshintrc` or `.jscs` files to manage. It just works.
 
 ## Install
 
 ```bash
-npm install semistandard
+npm install standard
 ```
 
 ## Rules
-Importantly:
-- **semicolons**
-- Check [feross/standard][1] for the rest of the rules.
+
+- **2 spaces** for indentation
+- **Single quotes** for strings
+  - Except to avoid escaping like `"in this lil' string"`
+- **Unix line breaks** (LF)
+- **No unused variables** (this one catches *so many* bugs and typos!)
+- **No semicolons**
+  - [It's totally][1] [fine.][2] *[Really!][3]*
+- **Never start a line with `(` or `[`**
+  - This is the **only** gotcha with omitting semicolons – *automatically checked for you!*
+  - Always prefix with `;` like this `;[1, 2, 3].join(' ')`
+- Spaces after keywords
+  - `if (condition) { ... }`
+- Spaces before/after function definitions
+  - `function name (arg1, arg2) { ... }`
+- Always name the context variable `self`
+  - `var self = this`
+  - Checks for accidental use of [`window.self`][4] when `var self = this` is omitted
+- Always use `===` instead of `==`
+  - `obj == null` is allowed for succinctness (`obj === null || obj === undefined`)
+- Always handle the node.js `err` function parameter
+
+[1]: http://blog.izs.me/post/2353458699/an-open-letter-to-javascript-leaders-regarding
+[2]: http://inimino.org/~inimino/blog/javascript_semicolons
+[3]: https://github.com/maxogden/messages/issues/18
+[4]: https://developer.mozilla.org/en-US/docs/Web/API/Window.self
+
+To get a better idea, take a look at
+[a sample file](https://github.com/feross/bittorrent-dht/blob/master/client.js) written
+in JavaScript Standard Style.
+
+## Usage
+
+The easiest way to use JavaScript Standard Style to check your code is to install it
+globally as a Node command line program. To do so, simply run the following command in
+your terminal (flag `-g` installs `standard` globally on your system, omit it if you want
+to install in the current working directory):
+
+```bash
+npm install standard -g
+```
+
+After you've done that you should be able to use the `standard` program. The simplest use
+case would be checking the style of all JavaScript files in the current working directory:
+
+```
+$ standard
+Error: Code style check failed:
+  lib/torrent.js:950:11: Expected '===' and instead saw '=='.
+```
 
 ### What you might do if you're clever
 
@@ -33,10 +80,10 @@ Importantly:
   {
     "name": "my-cool-package",
     "devDependencies": {
-      "semistandard": "*"
+      "standard": "*"
     },
     "scripts": {
-      "test": "semistandard && node my-normal-tests-littered-with-semicolons.js"
+      "test": "standard && node my-normal-tests.js"
     }
   }
   ```
@@ -49,9 +96,88 @@ Importantly:
     lib/torrent.js:950:11: Expected '===' and instead saw '=='.
   ```
 
-3. Never give style feedback on a pull request again! (unless its about semicolons)
+3. Never give style feedback on a pull request again!
 
+## FAQ
 
-See [feross/standard](1) for more information. In fact, you should probably just use the `standard` module instead.
+### Why would I use JavaScript Standard Style?
 
-[1]: https://github.com/feross/standard
+The beauty of JavaScript Standard Style is that it's simple. No one wants to maintain
+multiple hundred-line `.jshintrc` and `.jscs` for every module/project they maintain.
+Enough of this madness!
+
+This module saves you time in two ways:
+
+- **No configuration.** Just drop it in. The easiest way to enforce consistent style in
+  your module/project.
+- **Catch style errors before they're submitted in PRs.** Saves precious code review time
+  by eliminating back-and-forth between maintainer and contributor.
+
+### How do I ignore files?
+
+The paths `node_modules/`, `.git/`, `*.min.js`, and `bundle.js` are automatically excluded
+when looking for `.js` files to style check.
+
+Sometimes you need to ignore additional folders or specific minfied files. To do that, add
+a `standard.ignore` property to `package.json`:
+
+```json
+"standard": {
+  "ignore": [
+    "**/out/**",
+    "**/lib/select2/**",
+    "**/lib/ckeditor/**"
+  ]
+}
+```
+
+### Is there an automatic formatter?
+
+Yes, try using [Max Ogden](https://github.com/maxogden)'s experimental auto formatter
+**[`standard-format`](https://github.com/maxogden/standard-format)** to fix the easier
+cases.
+
+### How do I hide a certain warning?
+
+In rare cases, you'll need to break a rule and hide the warning generated by `standard`.
+
+JavaScript Standard Style uses [`jshint`](http://jshint.com/) and
+[`jscs`](http://jscs.info/) under-the-hood and you can hide their warnings as you normally
+would if you used each linter directly.
+
+To get verbose output (so you can find the particular rule name to ignore), run:
+
+```bash
+$ standard --verbose
+Error: Code style check failed:
+  routes/error.js:20:36: 'next' is defined but never used. (W098)
+  routes/submit.js:85:2: Expected indentation of 2 characters (validateIndentation)
+```
+
+The first warning is `jshint` (always starts with a `W`). You can hide it with a
+`/* jshint -W098 */` comment. Re-enable with a `/* jshint +W098 */` comment.
+
+Example:
+
+```js
+/* jshint -W098 */
+app.use(function (err, req, res, next) {
+  res.render('error', { err: err })
+})
+/* jshint +W098 */
+```
+
+The second warning is from `jscs` (always a long camel-case string), which you can hide
+with a `// jscs:disable validateIndentation` comment. Re-enable with a
+`// jscs:enable validateIndentation` comment.
+
+### Can you please add more config options?
+
+No. Use `jshint` or `jscs` directly if you want that.
+
+Pro tip: Just use `standard` and move on. There are actual real problems that you could
+spend your time solving :p
+
+## License
+
+MIT. Copyright (c) [Feross Aboukhadijeh](http://feross.org).
