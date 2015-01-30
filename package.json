@@ -12,6 +12,7 @@
   },
   "author": "Dan Flettre",
   "license": "MIT",
+  "preferGlobal": true,
   "dependencies": {
     "replace": "^0.3.0",
     "standard": "^2.2.5"
