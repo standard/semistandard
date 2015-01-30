@@ -14,7 +14,7 @@
   "license": "MIT",
   "dependencies": {
     "replace": "^0.3.0",
-    "standard": "1.x.x"
+    "standard": "~1.0.0"
   },
   "repository": {
     "type": "git",
