@@ -1,6 +1,6 @@
 {
   "name": "semistandard",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "All the goodness of `feross/standard` with semicolons sprinkled on top.",
   "main": "postinstall.js",
   "bin": {
