@@ -3,8 +3,8 @@
 [![npm][npm-image]][npm-url]
 [![downloads][downloads-image]][downloads-url]
 
-[travis-image]: https://img.shields.io/travis/flet/semistandard.svg?style=flat
-[travis-url]: https://travis-ci.org/flet/semistandard
+[travis-image]: https://img.shields.io/travis/Flet/semistandard.svg?style=flat
+[travis-url]: https://travis-ci.org/Flet/semistandard
 [npm-image]: https://img.shields.io/npm/v/semistandard.svg?style=flat
 [npm-url]: https://npmjs.org/package/semistandard
 [downloads-image]: https://img.shields.io/npm/dm/semistandard.svg?style=flat
