@@ -17,7 +17,7 @@ All the goodness of [feross/standard](https://github.com/feross/standard) with s
 ## Install
 
 ```bash
-npm install semistandard -
+npm install semistandard -g
 ```
 
 ## Rules
