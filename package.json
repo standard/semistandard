@@ -69,7 +69,7 @@
     "url": "https://github.com/Flet/semistandard.git"
   },
   "scripts": {
-    "sync": "npm install && cd syncscript && ./syncstandard && cd .. && npm prune && npm install && fixpack",
+    "sync": "npm install && cd syncscript && ./syncstandard && cd .. && npm prune && npm install && fixpack && npm test",
     "test": "node ./test.js"
   },
   "standard": {
