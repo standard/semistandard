@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# clone standard
+git clone --depth 1 http://github.com/feross/standard
+
+# copy to parent
+cp -a standard/* ../
+
+rm -rf standard
+
+# replace LICENSE and README
+cp LICENSE README.md test.js ../
+
+sed -i.original 's/"semi": \[2, "never"\]/"semi": \[2, "always"\]/' ../rc/.eslintrc
+
+node mergejson.js > ../mergedpackage.json
+
+mv ../mergedpackage.json ../package.json

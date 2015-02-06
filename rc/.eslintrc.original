@@ -123,7 +123,7 @@
         "quote-props": 0,
         "quotes": [2, "single", "avoid-escape"],
         "radix": 2,
-        "semi": [2, "always"],
+        "semi": [2, "never"],
         "sort-vars": 0,
         "space-after-function-name": [2, "always"],
         "space-after-keywords": [2, "always"],

@@ -1,31 +1,15 @@
 {
   "disallowKeywordsOnNewLine": ["else"],
   "disallowKeywords": ["with"],
-  "disallowMixedSpacesAndTabs": true,
-  "disallowMultipleLineBreaks": true,
-  "disallowMultipleLineStrings": true,
   "disallowMultipleVarDecl": "exceptUndefined",
   "disallowNewlineBeforeBlockStatements": true,
   "disallowOperatorBeforeLineBreak": ["."],
   "disallowPaddingNewlinesInBlocks": true,
-  "disallowQuotedKeysInObjects": "allButReserved",
-  "disallowSpaceAfterObjectKeys": true,
-  "disallowSpaceAfterPrefixUnaryOperators": ["++", "--", "+", "-", "~", "!"],
-  "disallowSpaceBeforePostfixUnaryOperators": ["++", "--"],
   "disallowSpacesInCallExpression": true,
   "disallowSpacesInsideParentheses": true,
-  "disallowTrailingComma": true,
-  "disallowTrailingWhitespace": true,
   "esnext": true,
   "requireBlocksOnNewline": 1,
-  "requireCapitalizedConstructors": true,
-  "requireCommaBeforeLineBreak": true,
-  "requireLineFeedAtFileEnd": true,
   "requireOperatorBeforeLineBreak": ["=", "+", "-", "/", "*", "==", "===", "!=", "!==", ">", ">=", "<", "<="],
-  "requireParenthesesAroundIIFE": true,
-  "requireSpaceAfterLineComment": true,
-  "requireSpaceBeforeObjectValues": true,
-  "requireSpaceBetweenArguments": true,
   "requireSpacesInConditionalExpression": {
       "afterTest": true,
       "beforeConsequent": true,
@@ -33,19 +17,7 @@
       "beforeAlternate": true
   },
   "requireSpacesInForStatement": true,
-  "requireSpacesInFunctionDeclaration": {
-      "beforeOpeningRoundBrace": true,
-      "beforeOpeningCurlyBrace": true
-  },
-  "requireSpacesInFunction": {
-      "beforeOpeningRoundBrace": true,
-      "beforeOpeningCurlyBrace": true
-  },
   "validateIndentation": 2,
   "validateLineBreaks": "LF",
-  "validateParameterSeparator": ", ",
-  "validateQuoteMarks": {
-      "mark": "'",
-      "escape": true
-  }
+  "validateParameterSeparator": ", "
 }

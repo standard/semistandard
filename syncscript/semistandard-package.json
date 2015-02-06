@@ -1,0 +1,38 @@
+{
+  "name": "semistandard",
+  "description": "All the goodness of `feross/standard` with semicolons sprinkled on top.",
+  "version": "2.4.1",
+  "author": {
+    "name": "Dan Flettre",
+    "email": "flettre@gmail.com",
+    "url": "http://twitter.com/flettre"
+  },
+  "bin": {
+    "semistandard": "./bin/cmd.js"
+  },
+  "scripts": {
+    "test": "node ./test.js",
+    "sync": "npm install && cd syncscript && ./syncstandard && cd .. && npm prune && npm install && fixpack"
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "preferGlobal": true,
+  "dependencies": {},
+  "devDependencies": {
+    "merge": "^1.2.0",
+    "fixpack": "^1.2.0",
+    "standard":"*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Flet/semistandard.git"
+  },
+  "keywords": [
+    "semicolon",
+    "bikeshed"
+  ],
+  "bugs": {
+    "url": "https://github.com/Flet/semistandard/issues"
+  },
+  "homepage": "https://github.com/Flet/semistandard"
+}

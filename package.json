@@ -1,53 +1,53 @@
 {
   "name": "semistandard",
-<<<<<<< HEAD
-  "version": "2.4.1",
-=======
->>>>>>> dc/legitify
   "description": "All the goodness of `feross/standard` with semicolons sprinkled on top.",
-  "version": "2.1.0",
+  "version": "2.4.1",
+  "author": {
+    "name": "Dan Flettre",
+    "email": "flettre@gmail.com",
+    "url": "http://twitter.com/flettre"
+  },
   "bin": {
     "semistandard": "./bin/cmd.js"
   },
-  "author": "Dan Flettre",
-  "license": "MIT",
-<<<<<<< HEAD
-  "preferGlobal": true,
-  "dependencies": {
-    "replace": "^0.3.0",
-    "standard": "~2.4.1"
-  },
-=======
-  "main": "index.js",
->>>>>>> dc/legitify
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Flet/semistandard.git"
+  "bugs": {
+    "url": "https://github.com/Flet/semistandard/issues"
   },
   "dependencies": {
     "eslint": "^0.13.0",
     "find-root": "^0.1.1",
     "glob": "^4.3.5",
     "jscs": "^1.10.0",
-    "jshint": "^2.6.0",
     "minimatch": "^2.0.1",
-    "split": "^0.3.2"
+    "minimist": "^1.1.0",
+    "run-parallel": "^1.0.0",
+    "split": "^0.3.2",
+    "uniq": "^1.0.1"
   },
   "devDependencies": {
     "extend.js": "0.0.2",
+    "fixpack": "^1.2.0",
+    "merge": "^1.2.0",
     "mkdirp": "^0.5.0",
     "rimraf": "^2.2.8",
-    "run-parallel": "^1.0.0",
-    "run-series": "^1.0.2"
+    "run-series": "^1.0.2",
+    "standard": "*"
   },
+  "homepage": "https://github.com/Flet/semistandard",
   "keywords": [
+    "style checker",
+    "code style",
+    "code checker",
+    "code linter",
+    "style linter",
+    "simple",
     "policy",
-    "code",
-    "style",
     "style",
     "code",
     "lint",
     "jshint",
+    "eslint",
+    "jscs",
     "hint",
     "enforce",
     "check",
@@ -55,17 +55,24 @@
     "standard",
     "quality",
     "checker",
-    "code",
-    "standards",
+    "code standards",
+    "JavaScript Standard Style",
+    "standard style",
     "semicolon",
     "bikeshed"
   ],
+  "license": "MIT",
+  "main": "index.js",
   "preferGlobal": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Flet/semistandard.git"
+  },
   "scripts": {
-    "test": "node ./bin/test.js"
+    "sync": "npm install && cd syncscript && ./syncstandard && cd .. && npm prune && npm install && fixpack",
+    "test": "node ./test.js"
   },
-  "bugs": {
-    "url": "https://github.com/Flet/semistandard/issues"
-  },
-  "homepage": "https://github.com/Flet/semistandard"
+  "standard": {
+    "ignore": "tmp/**"
+  }
 }
