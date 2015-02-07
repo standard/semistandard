@@ -2,7 +2,7 @@ var merge = require('merge')
 var standardPackageJson = require('./standard/package.json')
 var semiPackageJson = require('../package.json')
 
-var mergeKeys = ['dependencies', 'devDependencies', 'standard']
+var mergeKeys = ['dependencies', 'devDependencies', 'standard', 'scripts']
 
 var newPackageJson = merge(true, semiPackageJson)
 
