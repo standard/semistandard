@@ -22,7 +22,8 @@
     "minimist": "^1.1.0",
     "run-parallel": "^1.0.0",
     "split": "^0.3.2",
-    "uniq": "^1.0.1"
+    "uniq": "^1.0.1",
+    "which": "^1.0.8"
   },
   "devDependencies": {
     "extend.js": "0.0.2",
@@ -70,7 +71,9 @@
   },
   "scripts": {
     "sync": "npm install && cd syncscript && ./syncstandard && cd .. && npm prune && npm install && fixpack && npm test",
-    "test": "node ./test.js"
+    "test": "standard && node ./test.js",
+    "which-eslint": "which eslint",
+    "which-jscs": "which jscs"
   },
   "standard": {
     "ignore": "tmp/**"
