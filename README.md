@@ -25,6 +25,8 @@ Importantly:
 - **semicolons**
 - Check [feross/standard][1] for the rest of the rules.
 
+Sublime users: Try [SublimeLinter-contrib-semistandard](https://github.com/Flet/SublimeLinter-contrib-semistandard) for linting in your editor!
+
 ### What you might do if you're clever
 
 1. Add it to `package.json`
