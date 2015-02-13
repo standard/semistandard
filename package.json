@@ -1,7 +1,7 @@
 {
   "name": "semistandard",
   "description": "All the goodness of `feross/standard` with semicolons sprinkled on top.",
-  "version": "2.6.0",
+  "version": "2.6.2",
   "author": {
     "name": "Dan Flettre",
     "email": "flettre@gmail.com",
