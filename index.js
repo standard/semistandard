@@ -1,3 +1,5 @@
+module.exports = standard
+
 var cp = require('child_process')
 var findRoot = require('find-root')
 var glob = require('glob')
@@ -30,15 +32,15 @@ var COL_RE = /.*?:\d+:(\d+)/
 
 /**
  * JavaScript Standard Style
+ *
  * @param {Object} opts                        options object
  * @param {string|Array.<String>} opts.ignore  files to ignore
- * @param {boolean} opts.bare                  show raw linter output (for debugging)
  * @param {string} opts.cwd                    current working directory
- * @param {Array.<string>} files               files to check
+ * @param {Array.<string>} opts.files          files to check
  * @param {boolean} opts.stdin                 check text from stdin instead of filesystem
  * @param {boolean} opts.verbose               show error codes
  */
-module.exports = function standard (opts) {
+function standard (opts) {
   if (!opts) opts = {}
   var errors = []
 
@@ -164,14 +166,7 @@ module.exports = function standard (opts) {
   }
 
   function printErrors () {
-    if (opts.bare) {
-      errors.forEach(function (str) {
-        console.error(str)
-      })
-      return
-    }
-
-    console.error('Error: Code style check failed:')
+    console.error('Error: Use JavaScript Standard Style (https://github.com/feross/standard)')
     var unexpectedOutput = []
     var errMap = {}
     errors
