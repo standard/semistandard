@@ -1,12 +1,16 @@
 module.exports = standard
 
+var auto = require('run-auto')
 var cp = require('child_process')
+var debug = require('debug')('standard')
 var findRoot = require('find-root')
+var fs = require('fs')
 var glob = require('glob')
 var Minimatch = require('minimatch').Minimatch
 var parallel = require('run-parallel')
 var path = require('path')
 var split = require('split')
+var standardFormat = require('standard-format')
 var uniq = require('uniq')
 
 var JSCS_RC = path.join(__dirname, 'rc', '.jscsrc')
@@ -18,7 +22,7 @@ var ESLINT_REPORTER = path.join(__dirname, 'lib', 'eslint-reporter.js')
 var ESLINT_REPORTER_VERBOSE = path.join(__dirname, 'lib', 'eslint-reporter-verbose.js')
 
 var DEFAULT_IGNORE = [
-  'node_modules/**',
+  '**/node_modules/**',
   '.git/**',
   '**/*.min.js',
   '**/bundle.js',
@@ -39,6 +43,7 @@ var COL_RE = /.*?:\d+:(\d+)/
  * @param {Array.<string>} opts.files          files to check
  * @param {boolean} opts.stdin                 check text from stdin instead of filesystem
  * @param {boolean} opts.verbose               show error codes
+ * @param {boolean} opts.format                format code using standard-format before linting
  */
 function standard (opts) {
   if (!opts) opts = {}
@@ -106,6 +111,9 @@ function standard (opts) {
       // de-dupe
       files = uniq(files)
       if (files.length > 0) {
+        if (opts.format) {
+          format(files)
+        }
         jscsArgs = jscsArgs.concat(files)
         eslintArgs = eslintArgs.concat(files)
         lint()
@@ -117,35 +125,39 @@ function standard (opts) {
     lint()
   }
 
-  function lint () {
-    findBinPaths(function (err, paths) {
-      if (err) return error(err)
-      parallel([
-        spawn.bind(undefined, paths.jscs, jscsArgs),
-        spawn.bind(undefined, paths.eslint, eslintArgs)
-      ], function (err, r) {
-        if (err) return error(err)
-        if (r.some(Boolean)) printErrors()
-      })
+  function format (files) {
+    files.forEach(function (file) {
+      var data = fs.readFileSync(file).toString()
+      fs.writeFileSync(file, standardFormat.transform(data))
     })
   }
 
-  function findBinPaths (cb) {
-    parallel({
-      eslint: findBinPath.bind(undefined, 'eslint'),
-      jscs: findBinPath.bind(undefined, 'jscs')
-    }, cb)
+  function lint () {
+    auto({
+      eslintPath: findBinPath.bind(undefined, 'eslint'),
+      jscsPath: findBinPath.bind(undefined, 'jscs'),
+      eslint: ['eslintPath', function (cb, r) {
+        spawn(r.eslintPath, eslintArgs, cb)
+      }],
+      jscs: ['jscsPath', function (cb, r) {
+        spawn(r.jscsPath, jscsArgs, cb)
+      }]
+    }, function (err, r) {
+      if (err) return error(err)
+      if (r.eslint !== 0 || r.jscs !== 0) printErrors()
+    })
   }
 
   function findBinPath (bin, cb) {
     var opts = { cwd: __dirname }
-    cp.exec('npm run --silent which-' + bin, opts, function (err, stdout, stderr) {
+    cp.exec('npm run --silent which-' + bin, opts, function (err, stdout) {
       if (err) return cb(err)
       cb(null, stdout.toString().replace(/\n/g, ''))
     })
   }
 
   function spawn (command, args, cb) {
+    debug(command + ' ' + args.join(' '))
     var child = cp.spawn(command, args)
     child.on('error', cb)
     child.on('close', function (code) {
