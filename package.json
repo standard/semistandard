@@ -1,7 +1,7 @@
 {
   "name": "semistandard",
   "description": "All the goodness of `feross/standard` with semicolons sprinkled on top.",
-  "version": "2.6.5",
+  "version": "2.10.0",
   "author": {
     "name": "Dan Flettre",
     "email": "flettre@gmail.com",
@@ -14,7 +14,6 @@
     "url": "https://github.com/Flet/semistandard/issues"
   },
   "dependencies": {
-
     "debug": "^2.1.1",
     "eslint": "^0.15.0",
     "find-root": "^0.1.1",
