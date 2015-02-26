@@ -19,7 +19,7 @@ var TMP = path.join(__dirname, 'tmp')
 var SEMISTANDARD = path.join(__dirname, 'bin', 'cmd.js')
 
 var urls = [
-  'https://github.com/dcposch/scramble-mail-repo.git'
+  'https://github.com/Flet/cursorfun.git'
 ]
 
 var modules = {}
