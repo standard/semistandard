@@ -54,6 +54,4 @@ Sublime users: Try [SublimeLinter-contrib-semistandard](https://github.com/Flet/
 3. Never give style feedback on a pull request again! (unless its about semicolons)
 
 
-See [feross/standard](1) for more information. In fact, you should probably just use the `standard` module instead.
-
-[1]: https://github.com/feross/standard
+See [feross/standard](https://github.com/feross/standard) for more information. In fact, you should probably just use the `standard` module instead.
