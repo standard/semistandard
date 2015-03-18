@@ -2,15 +2,14 @@ module.exports = standard
 
 var auto = require('run-auto')
 var cp = require('child_process')
-var debug = require('debug')('standard')
+var debug = require('debug')('semistandard')
 var findRoot = require('find-root')
-var fs = require('fs')
 var glob = require('glob')
-var Minimatch = require('minimatch').Minimatch
 var parallel = require('run-parallel')
 var path = require('path')
 var split = require('split')
-var standardFormat = require('standard-format')
+var stdin = require('get-stdin')
+var str = require('string-to-stream')
 var uniq = require('uniq')
 
 var JSCS_RC = path.join(__dirname, 'rc', '.jscsrc')
@@ -21,7 +20,12 @@ var ESLINT_RC = path.join(__dirname, 'rc', '.eslintrc')
 var ESLINT_REPORTER = path.join(__dirname, 'lib', 'eslint-reporter.js')
 var ESLINT_REPORTER_VERBOSE = path.join(__dirname, 'lib', 'eslint-reporter-verbose.js')
 
-var DEFAULT_IGNORE = [
+var DEFAULT_PATTERNS = [
+  '**/*.js',
+  '**/*.jsx'
+]
+
+var DEFAULT_IGNORE_PATTERNS = [
   '**/node_modules/**',
   '.git/**',
   '**/*.min.js',
@@ -29,7 +33,7 @@ var DEFAULT_IGNORE = [
   'coverage/**'
 ]
 
-var ERROR_RE = /.*?:\d+:\d+/
+var ERROR_RE = /.*?:\d+:\d+:/
 var FILE_RE = /(.*?):/
 var LINE_RE = /.*?:(\d+)/
 var COL_RE = /.*?:\d+:(\d+)/
@@ -43,7 +47,6 @@ var COL_RE = /.*?:\d+:(\d+)/
  * @param {Array.<string>} opts.files          files to check
  * @param {boolean} opts.stdin                 check text from stdin instead of filesystem
  * @param {boolean} opts.verbose               show error codes
- * @param {boolean} opts.format                format code using standard-format before linting
  */
 function standard (opts) {
   if (!opts) opts = {}
@@ -54,7 +57,8 @@ function standard (opts) {
     root = findRoot(process.cwd())
   } catch (e) {}
 
-  var ignore = [].concat(DEFAULT_IGNORE) // globs to ignore
+  // Merge user ignore patterns and default ignore patterns
+  var ignore = (opts.ignore || []).concat(DEFAULT_IGNORE_PATTERNS)
 
   if (root) {
     var packageOpts = require(path.join(root, 'package.json')).standard
@@ -71,23 +75,20 @@ function standard (opts) {
     jscsArgs.push('--verbose')
   }
 
+  var stdinData
+
   if ((Array.isArray(opts.files) && opts.files.length > 0) || !opts.stdin) {
     var patterns = (Array.isArray(opts.files) && opts.files.length > 0)
       ? opts.files
-      : [ '**/*.js' ]
+      : DEFAULT_PATTERNS
 
     // traverse filesystem
-    if (opts.ignore) ignore = ignore.concat(opts.ignore)
-
-    ignore = ignore.map(function (pattern) {
-      return new Minimatch(pattern)
-    })
-
     parallel(patterns.map(function (pattern) {
       return function (cb) {
         glob(pattern, {
           cwd: opts.cwd || process.cwd(),
-          nodir: true
+          nodir: true,
+          ignore: ignore
         }, cb)
       }
     }), function (err, results) {
@@ -101,19 +102,9 @@ function standard (opts) {
         return files
       }, [])
 
-      // apply ignore patterns
-      files = files.filter(function (file) {
-        return !ignore.some(function (mm) {
-          return mm.match(file)
-        })
-      })
-
       // de-dupe
       files = uniq(files)
       if (files.length > 0) {
-        if (opts.format) {
-          format(files)
-        }
         jscsArgs = jscsArgs.concat(files)
         eslintArgs = eslintArgs.concat(files)
         lint()
@@ -122,13 +113,11 @@ function standard (opts) {
   } else {
     // stdin
     eslintArgs.push('--stdin')
-    lint()
-  }
 
-  function format (files) {
-    files.forEach(function (file) {
-      var data = fs.readFileSync(file).toString()
-      fs.writeFileSync(file, standardFormat.transform(data))
+    stdin(function (data) {
+      stdinData = data
+
+      lint()
     })
   }
 
@@ -163,7 +152,9 @@ function standard (opts) {
     child.on('close', function (code) {
       cb(null, code)
     })
-    if (opts.stdin) process.stdin.pipe(child.stdin)
+    if (opts.stdin) {
+      str(stdinData).pipe(child.stdin)
+    }
     stderrPipe(child.stdout)
     stderrPipe(child.stderr)
   }
@@ -216,10 +207,15 @@ function standard (opts) {
         console.error('  ' + str) // indent
       })
 
-    if (unexpectedOutput.length) console.error('\nUnexpected Linter Output:')
+    if (unexpectedOutput.length) {
+      console.error('\nUnexpected Linter Output:')
+    }
     unexpectedOutput.forEach(function (str) {
       console.error(str)
     })
+    if (unexpectedOutput.length) {
+      console.error('\nIf you think this is a bug in `semistandard`, open an issue: https://github.com/Flet/semistandard')
+    }
 
     process.exit(1)
   }
