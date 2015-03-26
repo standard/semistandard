@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Clones several projects that are known to follow "JavaScript semistandard Style" and runs
+ * Clones several projects that are known to follow "JavaScript Standard Style with Semicolons" and runs
  * the `semistandard` style checker to verify that it passes without warnings. This helps
  * ensure we don't accidentally introduce new style rules that cause previously "good"
  * code to start failing with new warnings! (And if we do, then that needs to be a MAJOR

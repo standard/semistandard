@@ -1,24 +1,13 @@
-module.exports = standard
+module.exports.lintText = lintText
+module.exports.lintFiles = lintFiles
 
-var auto = require('run-auto')
-var cp = require('child_process')
-var debug = require('debug')('semistandard')
+var dezalgo = require('dezalgo')
+var eslint = require('eslint')
 var findRoot = require('find-root')
 var glob = require('glob')
 var parallel = require('run-parallel')
 var path = require('path')
-var split = require('split')
-var stdin = require('get-stdin')
-var str = require('string-to-stream')
 var uniq = require('uniq')
-
-var JSCS_RC = path.join(__dirname, 'rc', '.jscsrc')
-var JSCS_REPORTER = path.join(__dirname, 'lib', 'jscs-reporter.js')
-var JSCS_REPORTER_VERBOSE = path.join(__dirname, 'lib', 'jscs-reporter-verbose.js')
-
-var ESLINT_RC = path.join(__dirname, 'rc', '.eslintrc')
-var ESLINT_REPORTER = path.join(__dirname, 'lib', 'eslint-reporter.js')
-var ESLINT_REPORTER_VERBOSE = path.join(__dirname, 'lib', 'eslint-reporter-verbose.js')
 
 var DEFAULT_PATTERNS = [
   '**/*.js',
@@ -28,200 +17,112 @@ var DEFAULT_PATTERNS = [
 var DEFAULT_IGNORE_PATTERNS = [
   '**/node_modules/**',
   '.git/**',
+  'coverage/**',
   '**/*.min.js',
-  '**/bundle.js',
-  'coverage/**'
+  '**/bundle.js'
 ]
 
-var ERROR_RE = /.*?:\d+:\d+:/
-var FILE_RE = /(.*?):/
-var LINE_RE = /.*?:(\d+)/
-var COL_RE = /.*?:\d+:(\d+)/
-
-/**
- * JavaScript Standard Style
- *
- * @param {Object} opts                        options object
- * @param {string|Array.<String>} opts.ignore  files to ignore
- * @param {string} opts.cwd                    current working directory
- * @param {Array.<string>} opts.files          files to check
- * @param {boolean} opts.stdin                 check text from stdin instead of filesystem
- * @param {boolean} opts.verbose               show error codes
- */
-function standard (opts) {
-  if (!opts) opts = {}
-  var errors = []
-
-  var root
-  try {
-    root = findRoot(process.cwd())
-  } catch (e) {}
-
-  // Merge user ignore patterns and default ignore patterns
-  var ignore = (opts.ignore || []).concat(DEFAULT_IGNORE_PATTERNS)
-
-  if (root) {
-    var packageOpts = require(path.join(root, 'package.json')).standard
-    if (packageOpts) ignore = ignore.concat(packageOpts.ignore)
-  }
-
-  var jscsReporter = opts.verbose ? JSCS_REPORTER_VERBOSE : JSCS_REPORTER
-  var jscsArgs = ['--config', JSCS_RC, '--reporter', jscsReporter]
-
-  var eslintReporter = opts.verbose ? ESLINT_REPORTER_VERBOSE : ESLINT_REPORTER
-  var eslintArgs = ['--config', ESLINT_RC, '--format', eslintReporter]
-
-  if (opts.verbose) {
-    jscsArgs.push('--verbose')
-  }
-
-  var stdinData
-
-  if ((Array.isArray(opts.files) && opts.files.length > 0) || !opts.stdin) {
-    var patterns = (Array.isArray(opts.files) && opts.files.length > 0)
-      ? opts.files
-      : DEFAULT_PATTERNS
-
-    // traverse filesystem
-    parallel(patterns.map(function (pattern) {
-      return function (cb) {
-        glob(pattern, {
-          cwd: opts.cwd || process.cwd(),
-          nodir: true,
-          ignore: ignore
-        }, cb)
-      }
-    }), function (err, results) {
-      if (err) return error(err)
-
-      // flatten nested arrays
-      var files = results.reduce(function (files, result) {
-        result.forEach(function (file) {
-          files.push(file)
-        })
-        return files
-      }, [])
-
-      // de-dupe
-      files = uniq(files)
-      if (files.length > 0) {
-        jscsArgs = jscsArgs.concat(files)
-        eslintArgs = eslintArgs.concat(files)
-        lint()
-      }
-    })
-  } else {
-    // stdin
-    eslintArgs.push('--stdin')
-
-    stdin(function (data) {
-      stdinData = data
-
-      lint()
-    })
-  }
-
-  function lint () {
-    auto({
-      eslintPath: findBinPath.bind(undefined, 'eslint'),
-      jscsPath: findBinPath.bind(undefined, 'jscs'),
-      eslint: ['eslintPath', function (cb, r) {
-        spawn(r.eslintPath, eslintArgs, cb)
-      }],
-      jscs: ['jscsPath', function (cb, r) {
-        spawn(r.jscsPath, jscsArgs, cb)
-      }]
-    }, function (err, r) {
-      if (err) return error(err)
-      if (r.eslint !== 0 || r.jscs !== 0) printErrors()
-    })
-  }
-
-  function findBinPath (bin, cb) {
-    var opts = { cwd: __dirname }
-    cp.exec('npm run --silent which-' + bin, opts, function (err, stdout) {
-      if (err) return cb(err)
-      cb(null, stdout.toString().replace(/\n/g, ''))
-    })
-  }
-
-  function spawn (command, args, cb) {
-    debug(command + ' ' + args.join(' '))
-    var child = cp.spawn(command, args)
-    child.on('error', cb)
-    child.on('close', function (code) {
-      cb(null, code)
-    })
-    if (opts.stdin) {
-      str(stdinData).pipe(child.stdin)
-    }
-    stderrPipe(child.stdout)
-    stderrPipe(child.stderr)
-  }
-
-  function stderrPipe (readable) {
-    readable
-      .pipe(split())
-      .on('data', function (line) {
-        if (line === '') return
-        errors.push(line)
-      })
-  }
-
-  function printErrors () {
-    console.error('Error: Use JavaScript Standard Style (https://github.com/feross/standard)')
-    var unexpectedOutput = []
-    var errMap = {}
-    errors
-      .map(function (str) { // normalize stdin "filename"
-        return str.replace(/^(<text>|input)/, 'stdin')
-      })
-      .filter(function (str) {
-        // don't process unexpected/malformed output, just print it at the end
-        if (!ERROR_RE.test(str)) {
-          unexpectedOutput.push(str)
-          return false
-        }
-
-        // de-duplicate errors
-        if (errMap[str]) return false
-        errMap[str] = true
-        return true
-      })
-      .sort(function (a, b) {
-        // sort by line number (merges output from all linters)
-        var fileA = FILE_RE.exec(a)[1]
-        var fileB = FILE_RE.exec(b)[1]
-
-        var lineA = Number(LINE_RE.exec(a)[1])
-        var lineB = Number(LINE_RE.exec(b)[1])
-
-        var colA = Number(COL_RE.exec(a)[1])
-        var colB = Number(COL_RE.exec(b)[1])
-
-        if (fileA !== fileB) return fileA < fileB ? -1 : 1
-        if (lineA !== lineB) return lineA - lineB
-        return colA - colB
-      })
-      .forEach(function (str) {
-        console.error('  ' + str) // indent
-      })
-
-    if (unexpectedOutput.length) {
-      console.error('\nUnexpected Linter Output:')
-    }
-    unexpectedOutput.forEach(function (str) {
-      console.error(str)
-    })
-    if (unexpectedOutput.length) {
-      console.error('\nIf you think this is a bug in `semistandard`, open an issue: https://github.com/Flet/semistandard')
-    }
-
-    process.exit(1)
-  }
+var ESLINT_CONFIG = {
+  configFile: path.join(__dirname, 'rc', '.eslintrc'),
+  useEslintrc: false
 }
 
-function error (err) {
-  console.error(err.stack || err.message || err)
-  process.exit(1)
+/**
+ * Lint text to enforce JavaScript Standard Style With Semicolons.
+ *
+ * @param {string} text                 file text to lint
+ * @param {Object} opts                 options object
+ * @param {Array.<String>} opts.ignore  file globs to ignore (has sane defaults)
+ * @param {string} opts.cwd             current working directory (default: process.cwd())
+ * @param {function(Error, Object)} cb  callback
+ */
+function lintText (text, opts, cb) {
+  if (typeof opts === 'function') {
+    cb = opts
+    opts = {}
+  }
+  opts = parseOpts(opts)
+  cb = dezalgo(cb)
+
+  var result
+  try {
+    result = new eslint.CLIEngine(ESLINT_CONFIG).executeOnText(text)
+  } catch (err) {
+    return cb(err)
+  }
+  return cb(null, result)
+}
+
+/**
+ * Lint files to enforce JavaScript Standard Style With Semicolons.
+ *
+ * @param {Array.<string>} files        file globs to lint
+ * @param {Object} opts                 options object
+ * @param {Array.<String>} opts.ignore  file globs to ignore (has sane defaults)
+ * @param {string} opts.cwd             current working directory (default: process.cwd())
+ * @param {function(Error, Object)} cb  callback
+ */
+function lintFiles (files, opts, cb) {
+  if (typeof opts === 'function') {
+    cb = opts
+    opts = {}
+  }
+  opts = parseOpts(opts)
+  cb = dezalgo(cb)
+
+  if (typeof files === 'string') files = [ files ]
+  if (files.length === 0) files = DEFAULT_PATTERNS
+
+  // traverse filesystem
+  parallel(files.map(function (pattern) {
+    return function (cb) {
+      glob(pattern, {
+        cwd: opts.cwd,
+        ignore: opts.ignore,
+        nodir: true
+      }, cb)
+    }
+  }), function (err, results) {
+    if (err) return cb(err)
+
+    // flatten nested arrays
+    var files = results.reduce(function (files, result) {
+      result.forEach(function (file) {
+        files.push(file)
+      })
+      return files
+    }, [])
+
+    // de-dupe
+    files = uniq(files)
+
+    // undocumented – do not use (used by bin/cmd.js)
+    if (opts._onFiles) opts._onFiles(files)
+
+    var result
+    try {
+      result = new eslint.CLIEngine(ESLINT_CONFIG).executeOnFiles(files)
+    } catch (err) {
+      return cb(err)
+    }
+    return cb(null, result)
+  })
+}
+
+function parseOpts (opts) {
+  if (!opts) opts = {}
+
+  if (!opts.cwd) opts.cwd = process.cwd()
+
+  // Add user ignore patterns to default ignore patterns
+  opts.ignore = (opts.ignore || []).concat(DEFAULT_IGNORE_PATTERNS)
+
+  // Add additional ignore patterns from the closest `package.json`
+  try {
+    var root = findRoot(opts.cwd)
+    var packageOpts = require(path.join(root, 'package.json')).semistandard
+    if (packageOpts) opts.ignore = opts.ignore.concat(packageOpts.ignore)
+  } catch (e) {}
+
+  return opts
 }
