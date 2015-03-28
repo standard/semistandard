@@ -1,7 +1,7 @@
 {
   "name": "semistandard",
   "description": "All the goodness of `feross/standard` with semicolons sprinkled on top.",
-  "version": "3.3.0",
+  "version": "4.0.0",
   "author": {
     "name": "Dan Flettre",
     "email": "flettre@gmail.com",
@@ -62,7 +62,7 @@
     "url": "https://github.com/Flet/semistandard.git"
   },
   "scripts": {
-   "test": "standard && node ./test.js"
+    "test": "standard && node ./test.js"
   },
   "standard": {
     "ignore": "tmp/**"
