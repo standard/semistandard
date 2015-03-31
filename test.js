@@ -19,7 +19,8 @@ var TMP = path.join(__dirname, 'tmp')
 var SEMISTANDARD = path.join(__dirname, 'bin', 'cmd.js')
 
 var urls = [
-  'https://github.com/Flet/cursorfun.git'
+  'https://github.com/Flet/cursorfun.git',
+  'https://github.com/bnolan/scenevr.git'
 ]
 
 var modules = {}
