@@ -10,13 +10,54 @@ All the goodness of [feross/standard] with semicolons sprinkled on top.
 ## Install
 
 ```bash
-npm install semistandard -g
+npm install semistandard
 ```
 
 ## Rules
+
 Importantly:
+
 - **semicolons**
 - Check [feross/standard] for the rest of the rules.
+
+## Badge
+
+Use this in one of your projects? Include one of these badges in your readme to
+let people know that your code is using the standard style.
+
+[![js-standard-style](https://cdn.rawgit.com/Flet/semistandard/master/badge.svg)](https://github.com/Flet/semistandard)
+
+```markdown
+[![js-standard-style](https://cdn.rawgit.com/Flet/semistandard/master/badge.svg)](https://github.com/Flet/semistandard)
+```
+
+[![js-standard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square)](https://github.com/feross/standard)
+
+```markdown
+[![js-standard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square)](https://github.com/feross/standard)
+```
+
+## Usage
+
+The easiest way to use JavaScript Semi-Standard Style to check your code is to install it
+globally as a Node command line program. To do so, simply run the following command in
+your terminal (flag `-g` installs `semistandard` globally on your system, omit it if you want
+to install in the current working directory):
+
+```bash
+npm install semistandard -g
+```
+
+After you've done that you should be able to use the `semistandard` program. The simplest use
+case would be checking the style of all JavaScript files in the current working directory:
+
+```
+$ semistandard
+Error: Use JavaScript Semi-Standard Style
+  lib/torrent.js:950:11: Expected '===' and instead saw '=='.
+```
+
+### Editor plugins
 
 Sublime users: Try [SublimeLinter-contrib-semistandard](https://github.com/Flet/SublimeLinter-contrib-semistandard) for linting in your editor!
 
