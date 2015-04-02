@@ -88,12 +88,12 @@ Sublime users: Try [SublimeLinter-contrib-semistandard](https://github.com/Flet/
 3. Never give style feedback on a pull request again! (unless it's about semicolons)
 
 
-See [feross/standard] for more information. In fact, you should probably just use the `standard` module instead.
+See [feross/standard] for more information.
 
-[travis-image]: https://img.shields.io/travis/Flet/semistandard.svg?style=flat
+[travis-image]: https://img.shields.io/travis/Flet/semistandard.svg?style=flat-square
 [travis-url]: https://travis-ci.org/Flet/semistandard
-[npm-image]: https://img.shields.io/npm/v/semistandard.svg?style=flat
+[npm-image]: https://img.shields.io/npm/v/semistandard.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/semistandard
-[downloads-image]: https://img.shields.io/npm/dm/semistandard.svg?style=flat
+[downloads-image]: https://img.shields.io/npm/dm/semistandard.svg?style=flat-square
 [downloads-url]: https://npmjs.org/package/semistandard
 [feross/standard]: https://github.com/feross/standard
