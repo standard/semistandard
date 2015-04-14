@@ -10,10 +10,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 * Changed `space-before-function-parentheses` to `space-before-function-paren`
 * new react rules added
   - `"react/jsx-boolean-value": 2`
-    - `"react/jsx-quotes": [2, "single", "avoid-escape"]`
-    - `"react/jsx-no-undef": 2`
-    - `"react/jsx-sort-props": 0`
-    - `"react/no-unknown-property": 2`
+  - `"react/jsx-quotes": [2, "single", "avoid-escape"]`
+  - `"react/jsx-no-undef": 2`
+  - `"react/jsx-sort-props": 0`
+  - `"react/no-unknown-property": 2`
 
 ### Updates from `standard-engine`
 * Ignore linting for all files in `.gitignore`.
