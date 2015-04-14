@@ -14,3 +14,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
     - `"react/jsx-no-undef": 2`
     - `"react/jsx-sort-props": 0`
     - `"react/no-unknown-property": 2`
+
+### Updates from `standard-engine`
+* Ignore linting for all files in `.gitignore`.
+* Removed `/git/**` exclusion as its redundant.
+* Output errors to stdout instead of stderr.
