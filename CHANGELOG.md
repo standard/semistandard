@@ -2,6 +2,9 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 4.1.1 - 2015-04-15
+* Update `standard-engine` version to fix crash on absolute filesystem path
+
 ## 4.1.0 - 2015-04-14
 
 ### Merged latest from standard 3.6.0:
