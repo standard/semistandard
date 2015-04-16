@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## 4.1.2 - 2015-04-16
-* Fixed programmatic so it actually works.
+* Fixed programmatic usage so it actually works.
 
 ## 4.1.1 - 2015-04-15
 * Update `standard-engine` version to fix crash on absolute filesystem path
