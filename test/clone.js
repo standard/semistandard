@@ -21,7 +21,8 @@ var SEMISTANDARD = path.join(__dirname, '..', 'bin', 'cmd.js')
 
 var URLS = [
   'https://github.com/Flet/cursorfun.git',
-  'https://github.com/bnolan/scenevr.git'
+  'https://github.com/bnolan/scenevr.git',
+  'https://github.com/patrickarlt/acetate.git'
 ]
 
 var MODULES = {}
