@@ -2,6 +2,9 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 4.1.4 2015-05-02
+* Merged from `standard`: relax rule `no-alert`
+
 ## 4.1.3 - 2015-04-23
 * Merged from `standard` rules: relax `no-lone-blocks` rule for [ES6 reasons](https://github.com/feross/standard/issues/121)
 
