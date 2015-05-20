@@ -2,6 +2,11 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 4.2.0 2015-05-20
+* Switch to using `eslint-config-semistandard`, which extends `eslint-config-standard`. This means that non-breaking changes in `standard` should automatically get reflected now!
+
+* Thanks to new collaborator @ricardofbarros, `semistandard` now has a --format (-F) flag! It uses his `semistandard-format` module which is a fork of `standard-format`. Good Stuff!
+
 ## 4.1.4 2015-05-02
 * Merged from `standard`: relax rule `no-alert`
 
