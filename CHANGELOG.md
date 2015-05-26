@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 4.2.1 2015-05-25
+* Bumped all dependencies to their latest minor versions in package.json
+* This includes a fix in `standard-engine` which dramatically speeds up lint times!
+
 ## 4.2.0 2015-05-20
 * Switch to using `eslint-config-semistandard`, which extends `eslint-config-standard`. This means that non-breaking changes in `standard` should automatically get reflected now!
 
