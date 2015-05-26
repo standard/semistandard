@@ -1,5 +1,7 @@
+var path = require('path')
 var semistandard = require('../')
 var test = require('tape')
+var filePath = path.resolve('./bin/cmd.js')
 
 test('api usage', function (t) {
   t.plan(6)
@@ -8,7 +10,7 @@ test('api usage', function (t) {
     t.equal(typeof result, 'object', 'result is an object')
     t.equal(result.errorCount, 42, 'error count 42')
 
-    t.equal(result.results[0].filePath, 'bin/cmd.js', 'error filepath correct')
+    t.equal(result.results[0].filePath, filePath, 'error filepath correct')
     t.equal(result.results[0].messages[0].message, 'Missing semicolon.', 'first mising semicolon message')
     t.equal(result.results[0].messages[0].message, 'Missing semicolon.', 'second mising semicolon message')
   })
