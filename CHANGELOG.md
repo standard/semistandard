@@ -2,6 +2,9 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 4.2.2 2015-05-25
+* Since `standard-engine` now supports passing a formatter, we've switched back to using it for the CLI.
+
 ## 4.2.1 2015-05-25
 * Bumped all dependencies to their latest minor versions in package.json
 * This includes a fix in `standard-engine` which dramatically speeds up lint times!
