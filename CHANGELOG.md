@@ -2,6 +2,11 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+
+## 4.3.0 2015-05-29
+* Updated to `standard-engine` 1.6.0
+* alternate parsers are now supported. See README.md for details!
+
 ## 4.2.2 2015-05-25
 * Since `standard-engine` now supports passing a formatter, we've switched back to using it for the CLI.
 

@@ -89,6 +89,15 @@ Error: Use JavaScript Semi-Standard Style
 
 3. Never give style feedback on a pull request again! (unless it's about semicolons)
 
+### Custom Parser
+To use a custom parser, install it from npm (example: `npm install
+babel-eslint`) and add this to your package.json:
+
+{
+  "semistandard": {
+    "parser": "babel-eslint"
+  }
+}
 
 See [feross/standard] for more information.
 
