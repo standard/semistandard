@@ -2,6 +2,9 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 5.0.0 2015-05-29
+* Updated to `standard` rules 2.0.0
+BREAKING CHANGE: new rule [operator-linebreak](http://eslint.org/docs/rules/operator-linebreak.html) set to "after"
 
 ## 4.3.0 2015-05-29
 * Updated to `standard-engine` 1.6.0
