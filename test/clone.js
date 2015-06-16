@@ -22,7 +22,11 @@ var SEMISTANDARD = path.join(__dirname, '..', 'bin', 'cmd.js')
 var URLS = [
   'https://github.com/Flet/cursorfun.git',
   'https://github.com/scenevr/server.git',
-  'https://github.com/Flet/acetate.git'
+  'https://github.com/Flet/acetate.git',
+  'https://github.com/wercker/docs.git',
+  'https://github.com/alexjesp/global-replacer.git',
+  'https://github.com/QubitProducts/react-test-tree.git',
+  'https://github.com/patrickarlt/acetate-asset-revisions.git'
 ]
 
 var MODULES = {}
