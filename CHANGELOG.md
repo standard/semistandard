@@ -2,7 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## 6.1.0 2015-16-16
+## 6.1.1 2016-06-17
+* Bump standard-engine to 1.8.1, which fixes an NPE. (thanks again @wombleton)
+
+## 6.1.0 2015-06-16
 * Fix react rules to work again.
 * New Rules coming from eslint-config-standard:
 * [accessor-pairs](http://eslint.org/docs/rules/accessor-pairs.html) - warns if setters are defined without getters.
