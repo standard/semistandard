@@ -99,6 +99,26 @@ babel-eslint`) and add this to your package.json:
   }
 }
 
+### Ignoring files
+
+Just like in `standard`, The paths `node_modules/**`, `*.min.js`, `bundle.js`, `coverage/**`, hidden files/folders
+(beginning with `.`), and all patterns in a project's root `.gitignore` file are
+automatically excluded when looking for `.js` files to check.
+
+Sometimes you need to ignore additional folders or specific minfied files. To do that, add
+a `semistandard.ignore` property to `package.json`:
+
+```json
+"semistandard": {
+  "ignore": [
+    "**/out/",
+    "/lib/select2/",
+    "/lib/ckeditor/",
+    "tmp.js"
+  ]
+}
+```
+
 See [feross/standard] for more information.
 
 [travis-image]: https://img.shields.io/travis/Flet/semistandard.svg?style=flat-square
