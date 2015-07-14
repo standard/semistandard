@@ -93,11 +93,13 @@ Error: Use JavaScript Semi-Standard Style
 To use a custom parser, install it from npm (example: `npm install
 babel-eslint`) and add this to your package.json:
 
+```json
 {
   "semistandard": {
     "parser": "babel-eslint"
   }
 }
+```
 
 ### Ignoring files
 
