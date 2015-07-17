@@ -9,7 +9,7 @@ module.exports = {
   bugs: pkg.bugs.url,
   tagline: 'Semicolons For All!',
   eslintConfig: {
-      configFile: path.join(__dirname, 'eslintrc.json')
+    configFile: path.join(__dirname, 'eslintrc.json')
   },
   formatter: require('semistandard-format')
 }
