@@ -121,6 +121,13 @@ a `semistandard.ignore` property to `package.json`:
 }
 ```
 
+### Make it look `snazzy`
+If you want prettier output, just install the [`snazzy`](https://github.com/feross/snazzy) package and pipe `semistandard` to it:
+
+```bash
+$ semistandard --verbose | snazzy
+```
+
 See [feross/standard] for more information.
 
 [travis-image]: https://img.shields.io/travis/Flet/semistandard.svg?style=flat-square
