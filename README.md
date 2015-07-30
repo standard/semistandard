@@ -68,7 +68,7 @@ Error: Use JavaScript Semi-Standard Style
 - **Atom plugin** - [standard-formatter](https://atom.io/packages/standard-formatter)
 - **Sublime Text plugin** - [StandardFormat](https://packagecontrol.io/packages/StandardFormat)
 
-Don't you mind with the misleading names of the above plugins, they all support both Standard and Semistandard
+Despite their names, all the above plugins support both `standard` and `semistandard`.
 
 ### What you might do if you're clever
 
