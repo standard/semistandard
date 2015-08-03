@@ -20,19 +20,77 @@ var TMP = path.join(__dirname, '..', 'tmp')
 var SEMISTANDARD = path.join(__dirname, '..', 'bin', 'cmd.js')
 
 var URLS = [
-  'https://github.com/Flet/cursorfun.git',
-  'https://github.com/scenevr/server.git',
-  'https://github.com/Flet/acetate.git',
-  'https://github.com/wercker/docs.git',
-  'https://github.com/alexjesp/global-replacer.git',
-  'https://github.com/QubitProducts/react-test-tree.git',
-  'https://github.com/patrickarlt/acetate-asset-revisions.git'
+  'https://github.com/blinkmobile/cast-property-types.js',
+  'https://github.com/blinkmobile/html-class-data.js',
+  'https://github.com/blinkmobile/jqpromise.js',
+  'https://github.com/blinkmobile/varied-definition.js',
+  'https://github.com/docusign/DocuSign-Node-Client',
+  'https://github.com/eHealthAfrica/kazana-bootstrap',
+  'https://github.com/eHealthAfrica/kazana-config',
+  'https://github.com/eHealthAfrica/kazana-example',
+  'https://github.com/eHealthAfrica/kazana-integration-test',
+  'https://github.com/eHealthAfrica/kazana-raw-data',
+  'https://github.com/Flet/acetate',
+  'https://github.com/Flet/cursorfun',
+  'https://github.com/Flet/scenevr',
+  'https://github.com/icyflame/cli-strlen',
+  'https://github.com/icyflame/convert-angle',
+  'https://github.com/icyflame/generator-nm-semistandard',
+  'https://github.com/icyflame/get-hosts-cli',
+  'https://github.com/icyflame/get-numbers',
+  'https://github.com/icyflame/gh-gist-owner',
+  'https://github.com/icyflame/gh-repos-creation-cal',
+  'https://github.com/icyflame/gh-username-available',
+  'https://github.com/icyflame/is-hexdigest',
+  'https://github.com/icyflame/remove-min-max',
+  'https://github.com/icyflame/terminal-wallet',
+  'https://github.com/JGAntunes/ampersand-infinite-scroll',
+  'https://github.com/JGAntunes/ampersand-pagination-mixin',
+  'https://github.com/jokeyrhyme/appcache-fetcher.js',
+  'https://github.com/larsthorup/amaze',
+  'https://github.com/larsthorup/neo4j-sandbox',
+  'https://github.com/muzzley/good-bunyan',
+  'https://github.com/openimagerynetwork/oin-meta-generator',
+  'https://github.com/patrickarlt/acetate-asset-revisions',
+  'https://github.com/QubitProducts/react-test-tree',
+  'https://github.com/scenevr/summary',
+  'https://github.com/shama/webpack-stream',
+  'https://github.com/spudly/error-subclass',
+  'https://github.com/spudly/error-wrapper',
+  'https://github.com/tomusdrw/grunt-sync',
+  'https://github.com/wercker/docs'
+  // 'https://github.com/alexjesp/global-replacer',
+  // 'https://github.com/alexjesp/global-replacer',
+  // 'https://github.com/blinkmobile/geolocation',
+  // 'https://github.com/bnolan/universe',
+  // 'https://github.com/brandonhorst/node-osa',
+  // 'https://github.com/cliftonc/seguir-express-middleware',
+  // 'https://github.com/developmentseed/collecticons'
+  // 'https://github.com/developmentseed/project-seed',
+  // 'https://github.com/eHealthAfrica/kazana',
+  // 'https://github.com/eHealthAfrica/kazana-account',
+  // 'https://github.com/Esri/esri-leaflet-geocoder',
+  // 'https://github.com/hotosm/oam-catalog',
+  // 'https://github.com/jflasher/firefly',
+  // 'https://github.com/lakshyaranganath/qCube',
+  // 'https://github.com/marek-ganko/battlehack-berlin-2015',
+  // 'https://github.com/mekanika/query',
+  // 'https://github.com/mekanika/skematic',
+  // 'https://github.com/nearform/cloudwatchlogs-stream',
+  // 'https://github.com/nearform/cloudwatchlogs-stream',
+  // 'https://github.com/nearform/seneca-salesforce-store',
+  // 'https://github.com/ricardofbarros/battleship-game',
+  // 'https://github.com/scenevr/domsync',
+  // 'https://github.com/scenevr/scenequery',
+  // 'https://github.com/scenevr/server',
+  // 'https://github.com/scenevr/slow',
+  // 'https://github.com/tes/parxer'
 ]
 
 var MODULES = {}
 URLS.forEach(function (url) {
-  var name = /\/([^\/]+)\.git$/.exec(url)[1]
-  MODULES[name] = url
+  var name = url
+  MODULES[name] = url + '.git'
 })
 
 test('clone repos from github', function (t) {
