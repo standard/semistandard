@@ -11,5 +11,6 @@ module.exports = {
   eslintConfig: {
     configFile: path.join(__dirname, 'eslintrc.json')
   },
-  formatter: require('semistandard-format')
+  formatter: require('semistandard-format'),
+  formatterName: 'semistandard-format'
 }
