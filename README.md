@@ -60,7 +60,7 @@ Error: Use JavaScript Semi-Standard Style
 ### Editor plugins
 
 - **Sublime users**: Try [SublimeLinter-contrib-semistandard](https://github.com/Flet/SublimeLinter-contrib-semistandard) for linting in your editor!
-- **Atom users** - Install [Linter](https://atom.io/packages/linter) and [linter-js-standard](https://atom.io/packages/linter-js-standard)
+- **Atom users** - Install [linter-js-standard](https://atom.io/packages/linter-js-standard)
 
 **Formatting code to Semistandard**
 
