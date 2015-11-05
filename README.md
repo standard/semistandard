@@ -108,6 +108,24 @@ babel-eslint`) and add this to your package.json:
 }
 ```
 
+### [Vim](http://www.vim.org/)
+
+Install **[Syntastic][vim-1]** and add these lines to `.vimrc`:
+
+```vim
+let g:syntastic_javascript_checkers=['standard']
+let g:syntastic_javascript_standard_exec = 'semistandard'
+```
+
+For automatic formatting on save, add these two lines to `.vimrc`:
+
+```vim
+autocmd bufwritepost *.js silent !semistandard % --format
+set autoread
+```
+
+[vim-1]: https://github.com/scrooloose/syntastic
+
 ### Ignoring files
 
 Just like in `standard`, The paths `node_modules/**`, `*.min.js`, `bundle.js`, `coverage/**`, hidden files/folders
