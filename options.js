@@ -7,7 +7,7 @@ module.exports = {
   version: pkg.version,
   homepage: pkg.homepage,
   bugs: pkg.bugs.url,
-  tagline: 'Use Semicolons For All!',
+  tagline: 'Semicolons For All!',
   eslintConfig: {
     configFile: path.join(__dirname, 'eslintrc.json')
   },
