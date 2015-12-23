@@ -30,7 +30,7 @@
     "fixpack": "^2.2.0",
     "merge": "^1.2.0",
     "mkdirp": "^0.5.1",
-    "rimraf": "^2.3.4",
+    "rimraf": "^2.5.0",
     "run-series": "^1.1.1",
     "standard": "*",
     "tape": "^4.0.0",
