@@ -2,6 +2,7 @@
 [![travis][travis-image]][travis-url]
 [![npm][npm-image]][npm-url]
 [![downloads][downloads-image]][downloads-url]
+[![bitHound Dependencies](https://www.bithound.io/github/gtanner/semistandard/badges/dependencies.svg)](https://www.bithound.io/github/gtanner/semistandard/master/dependencies/npm)
 
 ### One Semicolon for the Dark Lord on his dark throne
 
