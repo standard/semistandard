@@ -68,6 +68,7 @@ Error: Use JavaScript Semi-Standard Style
 - **CLI** - [semistandard-format](https://github.com/ricardofbarros/semistandard-format)
 - **Atom plugin** - [standard-formatter](https://atom.io/packages/standard-formatter)
 - **Sublime Text plugin** - [StandardFormat](https://packagecontrol.io/packages/StandardFormat)
+- **VS Code plugin** - [JavaScript Semi-Standard Format](https://marketplace.visualstudio.com/items/homerjam.vscode-semistandard-format)
 
 Despite their names, all the above plugins support both `standard` and `semistandard`.
 
