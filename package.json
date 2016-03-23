@@ -24,7 +24,7 @@
     "get-stdin": "^5.0.1",
     "minimist": "^1.1.1",
     "semistandard-format": "^2.1.0",
-    "standard-engine": "^2.0.4"
+    "standard-engine": "^3.2.4"
   },
   "devDependencies": {
     "fixpack": "^2.2.0",
