@@ -42,7 +42,7 @@ var URLS = [
   'https://github.com/JGAntunes/ampersand-infinite-scroll',
   'https://github.com/JGAntunes/ampersand-pagination-mixin',
   'https://github.com/jokeyrhyme/appcache-fetcher.js',
-  'https://github.com/larsthorup/amaze',
+ // 'https://github.com/larsthorup/amaze',
   'https://github.com/larsthorup/neo4j-sandbox',
  // 'https://github.com/muzzley/good-bunyan',
  // 'https://github.com/openimagerynetwork/oin-meta-generator',
@@ -51,9 +51,9 @@ var URLS = [
   'https://github.com/scenevr/summary',
   'https://github.com/shama/webpack-stream',
   'https://github.com/spudly/error-subclass',
-  'https://github.com/spudly/error-wrapper',
+  'https://github.com/spudly/error-wrapper'
 // 'https://github.com/tomusdrw/grunt-sync',
-  'https://github.com/wercker/docs'
+//  'https://github.com/wercker/docs'
   // 'https://github.com/alexjesp/global-replacer',
   // 'https://github.com/alexjesp/global-replacer',
   // 'https://github.com/blinkmobile/geolocation',
@@ -84,7 +84,8 @@ var URLS = [
 
 var MODULES = {}
 URLS.forEach(function (url) {
-  var name = url
+  var spliturl = url.split('/')
+  var name = spliturl[spliturl.length - 1]
   MODULES[name] = url + '.git'
 })
 
