@@ -19,7 +19,7 @@
     "eslint-config-semistandard": "^5.0.0",
     "eslint-config-standard": "^4.0.0",
     "eslint-config-standard-react": "^1.0.0",
-    "eslint-plugin-react": "^3.9.0",
+    "eslint-plugin-react": "^5.1.1",
     "eslint-plugin-standard": "^1.1.0",
     "get-stdin": "^5.0.1",
     "minimist": "^1.1.1",
