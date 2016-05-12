@@ -161,7 +161,6 @@ URLS.forEach(function (url) {
 })
 
 test('clone repos from github', function (t) {
-  t.plan(1)
   rimraf.sync(TMP)
   mkdirp.sync(TMP)
 
@@ -175,11 +174,11 @@ test('clone repos from github', function (t) {
   }), function (err) {
     if (err) throw err
     t.pass('cloned repos')
+    t.end()
   })
 })
 
 test('lint repos', function (t) {
-  t.plan(URLS.length)
   series(Object.keys(MODULES).map(function (name) {
     return function (cb) {
       var cwd = path.join(TMP, name)
@@ -188,7 +187,10 @@ test('lint repos', function (t) {
         cb(null)
       })
     }
-  }))
+  }), function (err) {
+    if (err) throw err
+    t.end()
+  })
 })
 
 function spawn (command, args, opts, cb) {
