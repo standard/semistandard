@@ -108,7 +108,6 @@ var URLS = [
   'https://github.com/micnews/embedly-url',
   'https://github.com/micnews/execute-scripts',
   'https://github.com/micnews/html-to-amp',
-  'https://github.com/micnews/immutable-object-methods',
   'https://github.com/micnews/levelgraph-query',
   'https://github.com/micnews/save-selection',
   'https://github.com/micnews/walk-apple-news-format',
