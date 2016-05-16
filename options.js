@@ -8,6 +8,7 @@ module.exports = {
   homepage: pkg.homepage,
   bugs: pkg.bugs.url,
   tagline: 'Semicolons For All!',
+  eslint: require('eslint'),
   eslintConfig: {
     configFile: path.join(__dirname, 'eslintrc.json')
   },
