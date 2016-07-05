@@ -27,7 +27,7 @@
   "devDependencies": {
     "merge": "^1.2.0",
     "mkdirp": "^0.5.1",
-    "rimraf": "^2.3.4",
+    "rimraf": "^2.4.5",
     "run-series": "^1.1.1",
     "standard": "^7.0.1",
     "tape": "^4.5.1",
