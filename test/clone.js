@@ -22,8 +22,7 @@ var SEMISTANDARD = path.join(__dirname, '..', 'bin', 'cmd.js')
 // var URLs = require('./semistandard-repos.json')
 var URLS = [
   'https://github.com/Flet/acetate',
-  'https://github.com/Flet/cursorfun',
-  'https://github.com/Flet/scenevr'
+  'https://github.com/Flet/cursorfun'
 ]
 
 var MODULES = {}
