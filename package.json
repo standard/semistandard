@@ -14,7 +14,7 @@
     "url": "https://github.com/Flet/semistandard/issues"
   },
   "dependencies": {
-    "eslint": "~3.7.1",
+    "eslint": "~3.9.0",
     "eslint-config-semistandard": "7.0.0",
     "eslint-config-standard": "6.2.0",
     "eslint-config-standard-jsx": "3.2.0",
