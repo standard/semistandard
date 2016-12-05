@@ -63,15 +63,6 @@ Error: Use JavaScript Semi-Standard Style
 - **Sublime users**: Try [SublimeLinter-contrib-semistandard](https://github.com/Flet/SublimeLinter-contrib-semistandard) for linting in your editor!
 - **Atom users** - Install [linter-js-standard](https://atom.io/packages/linter-js-standard)
 
-**Formatting code to Semistandard**
-
-- **CLI** - [semistandard-format](https://github.com/ricardofbarros/semistandard-format)
-- **Atom plugin** - [standard-formatter](https://atom.io/packages/standard-formatter)
-- **Sublime Text plugin** - [StandardFormat](https://packagecontrol.io/packages/StandardFormat)
-- **VS Code plugin** - [JavaScript Semi-Standard Format](https://marketplace.visualstudio.com/items/homerjam.vscode-semistandard-format)
-
-Despite their names, all the above plugins support both `standard` and `semistandard`.
-
 ### What you might do if you're clever
 
 1. Add it to `package.json`
@@ -122,7 +113,7 @@ let g:syntastic_javascript_standard_exec = 'semistandard'
 For automatic formatting on save, add these two lines to `.vimrc`:
 
 ```vim
-autocmd bufwritepost *.js silent !semistandard % --format
+autocmd bufwritepost *.js silent !semistandard % --fix
 set autoread
 ```
 
