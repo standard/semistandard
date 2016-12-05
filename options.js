@@ -11,7 +11,5 @@ module.exports = {
   eslint: require('eslint'),
   eslintConfig: {
     configFile: path.join(__dirname, 'eslintrc.json')
-  },
-  formatter: require('semistandard-format'),
-  formatterName: 'semistandard-format'
+  }
 }
