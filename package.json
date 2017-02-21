@@ -21,7 +21,7 @@
     "eslint-plugin-promise": "~3.4.0",
     "eslint-plugin-react": "~6.8.0",
     "eslint-plugin-standard": "~2.0.1",
-    "standard-engine": "~5.3.0"
+    "standard-engine": "~6.0.0"
   },
   "devDependencies": {
     "merge": "^1.2.0",
