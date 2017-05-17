@@ -62,6 +62,7 @@ Error: Use JavaScript Semi-Standard Style
 
 - **Sublime users**: Try [SublimeLinter-contrib-semistandard](https://github.com/Flet/SublimeLinter-contrib-semistandard) for linting in your editor!
 - **Atom users** - Install [linter-js-standard](https://atom.io/packages/linter-js-standard)
+- **VSCode users** - Install [vscode-standardjs](https://marketplace.visualstudio.com/items?itemName=chenxsan.vscode-standardjs)
 
 ### What you might do if you're clever
 
