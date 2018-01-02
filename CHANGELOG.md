@@ -2,6 +2,16 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 12.0.0 2017-12-19
+
+Updated to eslint 4 and `standard 11.0.0` and the latest `standard-engine`.
+
+With the eslint update, there are a few rules that are more strict now. Thankfully running `semistandard --fix` will fix just about all of them!
+
+Check `standard` changelog that covers all the updates in detail:
+https://standardjs.com/changelog
+
+
 ## 11.0.0 2017-04-20
 
 Updated to match the latest `standard v10.0.2` rules and the newest `standard-engine` features.
