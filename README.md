@@ -5,7 +5,7 @@
 
 ### One Semicolon for the Dark Lord on his dark throne
 
-All the goodness of [feross/standard] with semicolons sprinkled on top.
+All the goodness of [standard/standard] with semicolons sprinkled on top.
 
 ## Install
 
@@ -18,7 +18,7 @@ npm install semistandard
 Importantly:
 
 - **semicolons**
-- Check [feross/standard] for the rest of the rules.
+- Check [standard/standard] for the rest of the rules.
 
 ## Badge
 
@@ -146,7 +146,7 @@ If you want prettier output, just install the [`snazzy`](https://github.com/fero
 $ semistandard --verbose | snazzy
 ```
 
-See [feross/standard] for more information.
+See [standard/standard] for more information.
 
 [travis-image]: https://img.shields.io/travis/Flet/semistandard.svg?style=flat-square
 [travis-url]: https://travis-ci.org/Flet/semistandard
@@ -154,4 +154,4 @@ See [feross/standard] for more information.
 [npm-url]: https://npmjs.org/package/semistandard
 [downloads-image]: https://img.shields.io/npm/dm/semistandard.svg?style=flat-square
 [downloads-url]: https://npmjs.org/package/semistandard
-[feross/standard]: https://github.com/feross/standard
+[standard/standard]: https://github.com/standard/standard
