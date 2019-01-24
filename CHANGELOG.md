@@ -2,6 +2,14 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+# 13.0.0 2018-11-06
+
+Updated to eslint 5 and `standard 12.0.0` and the latest `standard-engine`.
+
+Check `standard` changelog that covers all the updates in detail:
+https://standardjs.com/changelog
+
+
 ## 12.0.0 2017-12-19
 
 Updated to eslint 4 and `standard 11.0.0` and the latest `standard-engine`.
