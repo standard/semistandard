@@ -38,7 +38,7 @@ test('clone repos from github', function (t) {
   series(Object.keys(MODULES).map(function (name) {
     var url = MODULES[name]
     return function (cb) {
-      var args = [ 'clone', '--depth', 1, url, path.join(TMP, name) ]
+      var args = ['clone', '--depth', 1, url, path.join(TMP, name)]
       // TODO: Start `git` in a way that works on Windows – PR welcome!
       spawn('git', args, {}, cb)
     }
