@@ -34,7 +34,7 @@ let people know that your code is using the standard style.
 [![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square)](https://github.com/Flet/semistandard)
 
 ```markdown
-[![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square)](https://github.com/Flet/semistandard)
+[![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square)](https://github.com/Flet/semistandard) [![Greenkeeper badge](https://badges.greenkeeper.io/standard/semistandard.svg)](https://greenkeeper.io/)
 ```
 
 ## Usage
