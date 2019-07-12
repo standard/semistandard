@@ -2,6 +2,7 @@
 [![travis][travis-image]][travis-url]
 [![npm][npm-image]][npm-url]
 [![downloads][downloads-image]][downloads-url]
+[![Greenkeeper badge](https://badges.greenkeeper.io/standard/semistandard.svg)](https://greenkeeper.io/)
 
 ### One Semicolon for the Dark Lord on his dark throne
 
@@ -34,7 +35,7 @@ let people know that your code is using the standard style.
 [![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square)](https://github.com/standard/semistandard)
 
 ```markdown
-[![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square)](https://github.com/standard/semistandard) [![Greenkeeper badge](https://badges.greenkeeper.io/standard/semistandard.svg)](https://greenkeeper.io/)
+[![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square)](https://github.com/standard/semistandard)
 ```
 
 ## Usage
