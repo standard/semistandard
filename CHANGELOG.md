@@ -124,7 +124,7 @@ In summary:
 
 - Upgrade to ESLint v3 (http://eslint.org/docs/user-guide/migrating-to-3.0.0)
   - **BREAKING:** Drop support for node < 4 (this was a decision made by the ESLint team)
-- Expose ESLint's `--fix` command line flag [standard-engine/#107](https://github.com/Flet/standard-engine/issues/107)
+- Expose ESLint's `--fix` command line flag [standard-engine/#107](https://github.com/standard/standard-engine/issues/107)
   - Lightweight, no additional dependencies, fixes dozens of rules automatically
   - **Note:** for `semistandard`, we left the existing `--format` flag in place, which uses `semistandard-format`, but I highly recommend using `--fix` instead!
 

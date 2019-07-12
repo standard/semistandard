@@ -11,7 +11,7 @@
     "semistandard": "./bin/cmd.js"
   },
   "bugs": {
-    "url": "https://github.com/Flet/semistandard/issues"
+    "url": "https://github.com/standard/semistandard/issues"
   },
   "dependencies": {
     "eslint": "~6.0.1",
@@ -37,7 +37,7 @@
   "engines": {
     "node": ">=6"
   },
-  "homepage": "https://github.com/Flet/semistandard",
+  "homepage": "https://github.com/standard/semistandard",
   "keywords": [
     "JavaScript Standard Style",
     "bikeshed",
@@ -69,7 +69,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Flet/semistandard.git"
+    "url": "https://github.com/standard/semistandard.git"
   },
   "scripts": {
     "test": "standard && tape test/*.js"

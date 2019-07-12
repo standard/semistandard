@@ -25,16 +25,16 @@ Importantly:
 Use this in one of your projects? Include one of these badges in your readme to
 let people know that your code is using the standard style.
 
-[![js-semistandard-style](https://cdn.rawgit.com/flet/semistandard/master/badge.svg)](https://github.com/Flet/semistandard)
+[![js-semistandard-style](https://cdn.rawgit.com/standard/semistandard/master/badge.svg)](https://github.com/standard/semistandard)
 
 ```markdown
-[![js-semistandard-style](https://cdn.rawgit.com/flet/semistandard/master/badge.svg)](https://github.com/Flet/semistandard)
+[![js-semistandard-style](https://cdn.rawgit.com/standard/semistandard/master/badge.svg)](https://github.com/standard/semistandard)
 ```
 
-[![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square)](https://github.com/Flet/semistandard)
+[![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square)](https://github.com/standard/semistandard)
 
 ```markdown
-[![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square)](https://github.com/Flet/semistandard) [![Greenkeeper badge](https://badges.greenkeeper.io/standard/semistandard.svg)](https://greenkeeper.io/)
+[![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square)](https://github.com/standard/semistandard) [![Greenkeeper badge](https://badges.greenkeeper.io/standard/semistandard.svg)](https://greenkeeper.io/)
 ```
 
 ## Usage
@@ -148,8 +148,8 @@ $ semistandard --verbose | snazzy
 
 See [standard/standard] for more information.
 
-[travis-image]: https://img.shields.io/travis/Flet/semistandard.svg?style=flat-square
-[travis-url]: https://travis-ci.org/Flet/semistandard
+[travis-image]: https://img.shields.io/travis/standard/semistandard.svg?style=flat-square
+[travis-url]: https://travis-ci.org/standard/semistandard
 [npm-image]: https://img.shields.io/npm/v/semistandard.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/semistandard
 [downloads-image]: https://img.shields.io/npm/dm/semistandard.svg?style=flat-square
