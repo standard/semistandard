@@ -5,7 +5,7 @@ var filePath = path.resolve('./bin/cmd.js')
 
 test('api usage', function (t) {
   t.plan(6)
-  semistandard.lintFiles([], { cwd: 'bin' }, function (err, result) {
+  semistandard.lintFiles(['bin/cmd.js'], {}, function (err, result) {
     t.error(err, 'no error while linting')
     t.equal(typeof result, 'object', 'result is an object')
     t.equal(result.errorCount, 2, 'error count 2')
