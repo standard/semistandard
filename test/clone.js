@@ -53,7 +53,7 @@ test('lint repos', function (t) {
   series(Object.keys(MODULES).map(function (name) {
     return function (cb) {
       var cwd = path.join(TMP, name)
-      spawn('node', [SEMISTANDARD], { cwd: cwd }, function (err) {
+      spawn('node', [SEMISTANDARD], { cwd }, function (err) {
         t.error(err, name)
         cb(null)
       })
