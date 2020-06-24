@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "merge": "^1.2.0",
-    "mkdirp": "^0.5.1",
+    "mkdirp": "^1.0.0",
     "rimraf": "^3.0.0",
     "run-series": "^1.1.1",
     "standard": "*",
