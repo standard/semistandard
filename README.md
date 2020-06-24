@@ -25,7 +25,7 @@ Importantly:
 Use this in one of your projects? Include one of these badges in your readme to
 let people know that your code is using the standard style.
 
-[![js-semistandard-style](https://raw.githubusercontent.com/standard/semistandard/master/badge.svg)
+![js-semistandard-style](https://raw.githubusercontent.com/standard/semistandard/master/badge.svg)
 
 ```markdown
 [![js-semistandard-style](https://raw.githubusercontent.com/standard/semistandard/master/badge.svg)
