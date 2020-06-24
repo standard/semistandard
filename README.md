@@ -25,10 +25,10 @@ Importantly:
 Use this in one of your projects? Include one of these badges in your readme to
 let people know that your code is using the standard style.
 
-![js-semistandard-style](https://raw.githubusercontent.com/standard/semistandard/master/badge.svg)
+[![js-semistandard-style](https://raw.githubusercontent.com/standard/semistandard/master/badge.svg)](https://github.com/standard/semistandard)
 
 ```markdown
-[![js-semistandard-style](https://raw.githubusercontent.com/standard/semistandard/master/badge.svg)
+[![js-semistandard-style](https://raw.githubusercontent.com/standard/semistandard/master/badge.svg)](https://github.com/standard/semistandard)
 ```
 
 [![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square)](https://github.com/standard/semistandard)
