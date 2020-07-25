@@ -2,6 +2,9 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+# 14.2.2 2020-07-25
+- Republish without CRLF to resolve issues on MacOS.
+
 # 14.2.0 - 2019-09-14
 
 - Update eslint to 6.4.0
@@ -167,7 +170,7 @@ In summary:
 
 ### Changed rules
 
-- Relax rule: Allow template literal strings (backtick strings) to avoid escaping  [#421](https://github.com/feross/standard/issues/421)
+- Relax rule: Allow template literal strings (backtick strings) to avoid escaping [#421](https://github.com/feross/standard/issues/421)
 - Relax rule: Do not enforce spacing around * in generator functions (https://github.com/feross/standard/issues/564#issuecomment-234699126)
   - This is a temporary workaround for `babel` users who use async generator functions.
 
