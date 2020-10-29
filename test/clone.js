@@ -19,9 +19,9 @@ const test = require('tape')
 const TMP = path.join(__dirname, '..', 'tmp')
 const SEMISTANDARD = path.join(__dirname, '..', 'bin', 'cmd.js')
 
-// var URLs = require('./semistandard-repos.json')
+// const URLS = require('./semistandard-repos.json')
 const URLS = [
-  'https://github.com/Flet/cursorfun'
+  'https://github.com/bcomnes/fetch-errors'
 ]
 
 const MODULES = {}
