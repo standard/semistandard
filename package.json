@@ -3,9 +3,9 @@
   "description": "All the goodness of `feross/standard` with semicolons sprinkled on top.",
   "version": "15.0.0",
   "author": {
-    "email": "flettre@gmail.com",
-    "name": "Dan Flettre",
-    "url": "http://twitter.com/flettre"
+    "name": "Feross Aboukhadijeh",
+    "email": "feross@feross.org",
+    "url": "https://feross.org"
   },
   "bin": {
     "semistandard": "./bin/cmd.js"
@@ -76,5 +76,19 @@
   },
   "standard": {
     "ignore": "tmp/**"
-  }
+  },
+  "funding": [
+    {
+      "type": "github",
+      "url": "https://github.com/sponsors/feross"
+    },
+    {
+      "type": "patreon",
+      "url": "https://www.patreon.com/feross"
+    },
+    {
+      "type": "consulting",
+      "url": "https://feross.org/support"
+    }
+  ]
 }
