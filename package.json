@@ -14,25 +14,25 @@
     "url": "https://github.com/standard/semistandard/issues"
   },
   "dependencies": {
-    "eslint": "~6.8.0",
-    "eslint-config-semistandard": "15.0.0",
-    "eslint-config-standard": "14.1.1",
-    "eslint-config-standard-jsx": "8.1.0",
-    "eslint-plugin-import": "~2.18.0",
-    "eslint-plugin-node": "~10.0.0",
+    "eslint": "~7.12.1",
+    "eslint-config-semistandard": "15.0.1",
+    "eslint-config-standard": "15.0.1",
+    "eslint-config-standard-jsx": "9.0.0",
+    "eslint-plugin-import": "~2.22.1",
+    "eslint-plugin-node": "~11.1.0",
     "eslint-plugin-promise": "~4.2.1",
-    "eslint-plugin-react": "~7.14.2",
-    "eslint-plugin-standard": "~4.0.0",
-    "standard-engine": "^12.0.0"
+    "eslint-plugin-react": "~7.21.5",
+    "eslint-plugin-standard": "~4.0.2",
+    "standard-engine": "^13.0.0"
   },
   "devDependencies": {
-    "merge": "^1.2.0",
-    "mkdirp": "^1.0.0",
-    "rimraf": "^3.0.0",
-    "run-series": "^1.1.1",
+    "merge": "^1.2.1",
+    "mkdirp": "^1.0.4",
+    "rimraf": "^3.0.2",
+    "run-series": "^1.1.9",
     "standard": "*",
-    "tape": "^5.0.0",
-    "xtend": "^4.0.0"
+    "tape": "^5.0.1",
+    "xtend": "^4.0.2"
   },
   "engines": {
     "node": ">=6"
