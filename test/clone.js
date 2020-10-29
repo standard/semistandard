@@ -8,26 +8,26 @@
  * VERSION BUMP.)
  */
 
-var cp = require('child_process')
-var extend = require('xtend')
-var mkdirp = require('mkdirp')
-var path = require('path')
-var rimraf = require('rimraf')
-var series = require('run-series')
-var test = require('tape')
+const cp = require('child_process')
+const extend = require('xtend')
+const mkdirp = require('mkdirp')
+const path = require('path')
+const rimraf = require('rimraf')
+const series = require('run-series')
+const test = require('tape')
 
-var TMP = path.join(__dirname, '..', 'tmp')
-var SEMISTANDARD = path.join(__dirname, '..', 'bin', 'cmd.js')
+const TMP = path.join(__dirname, '..', 'tmp')
+const SEMISTANDARD = path.join(__dirname, '..', 'bin', 'cmd.js')
 
 // var URLs = require('./semistandard-repos.json')
-var URLS = [
+const URLS = [
   'https://github.com/Flet/cursorfun'
 ]
 
-var MODULES = {}
+const MODULES = {}
 URLS.forEach(function (url) {
-  var spliturl = url.split('/')
-  var name = spliturl[spliturl.length - 1]
+  const spliturl = url.split('/')
+  const name = spliturl[spliturl.length - 1]
   MODULES[name] = url + '.git'
 })
 
@@ -36,9 +36,9 @@ test('clone repos from github', function (t) {
   mkdirp.sync(TMP)
 
   series(Object.keys(MODULES).map(function (name) {
-    var url = MODULES[name]
+    const url = MODULES[name]
     return function (cb) {
-      var args = ['clone', '--depth', 1, url, path.join(TMP, name)]
+      const args = ['clone', '--depth', 1, url, path.join(TMP, name)]
       // TODO: Start `git` in a way that works on Windows – PR welcome!
       spawn('git', args, {}, cb)
     }
@@ -52,7 +52,7 @@ test('clone repos from github', function (t) {
 test('lint repos', function (t) {
   series(Object.keys(MODULES).map(function (name) {
     return function (cb) {
-      var cwd = path.join(TMP, name)
+      const cwd = path.join(TMP, name)
       spawn('node', [SEMISTANDARD], { cwd }, function (err) {
         t.error(err, name)
         cb(null)
@@ -65,7 +65,7 @@ test('lint repos', function (t) {
 })
 
 function spawn (command, args, opts, cb) {
-  var child = cp.spawn(command, args, extend({ stdio: 'inherit' }, opts))
+  const child = cp.spawn(command, args, extend({ stdio: 'inherit' }, opts))
   child.on('error', cb)
   child.on('close', function (code) {
     if (code !== 0) cb(new Error('non-zero exit code: ' + code))

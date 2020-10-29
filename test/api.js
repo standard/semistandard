@@ -1,7 +1,7 @@
-var path = require('path')
-var semistandard = require('../')
-var test = require('tape')
-var filePath = path.resolve('./bin/cmd.js')
+const path = require('path')
+const semistandard = require('../')
+const test = require('tape')
+const filePath = path.resolve('./bin/cmd.js')
 
 test('api usage', function (t) {
   t.plan(6)
