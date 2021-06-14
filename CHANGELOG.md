@@ -2,6 +2,36 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+
+# 16.0.1 2021-06-14
+
+Updated to `standard 16.0.3`.
+
+Check `standard` changelog that covers all the updates in detail:
+https://standardjs.com/changelog
+
+Also:
+
+- Updated to `eslint-config-semistandard` version `16.0.0`
+- Removed unused `eslint-plugin-standard`
+
+# 16.0.0 2020-10-30
+
+Updated to `standard 16.0.0`.
+
+Check `standard` changelog that covers all the updates in detail:
+https://standardjs.com/changelog
+
+# 15.0.0 2020-10-29
+
+Updated to eslint 7 and `standard 15.0.0`.
+
+Check `standard` changelog that covers all the updates in detail:
+https://standardjs.com/changelog
+
+# 14.2.3 2020-07-25
+- Republish with complete changelog
+
 # 14.2.2 2020-07-25
 - Republish without CRLF to resolve issues on MacOS.
 
