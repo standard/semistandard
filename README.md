@@ -31,10 +31,10 @@ let people know that your code is using the standard style.
 [![js-semistandard-style](https://raw.githubusercontent.com/standard/semistandard/master/badge.svg)](https://github.com/standard/semistandard)
 ```
 
-[![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square)](https://github.com/standard/semistandard)
+[![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg)](https://github.com/standard/semistandard)
 
 ```markdown
-[![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square)](https://github.com/standard/semistandard)
+[![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg)](https://github.com/standard/semistandard)
 ```
 
 ## Usage
@@ -150,8 +150,8 @@ See [standard/standard] for more information.
 
 [tests-image]: https://github.com/standard/semistandard/actions/workflows/test.yml/badge.svg
 [tests-url]: https://github.com/standard/semistandard/actions/workflows/test.yml
-[npm-image]: https://img.shields.io/npm/v/semistandard.svg?style=flat-square
+[npm-image]: https://img.shields.io/npm/v/semistandard.svg
 [npm-url]: https://npmjs.org/package/semistandard
-[downloads-image]: https://img.shields.io/npm/dm/semistandard.svg?style=flat-square
+[downloads-image]: https://img.shields.io/npm/dm/semistandard.svg
 [downloads-url]: https://npmjs.org/package/semistandard
 [standard/standard]: https://github.com/standard/standard
