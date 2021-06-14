@@ -1,5 +1,5 @@
 # JavaScript Semi-Standard Style
-[![travis][travis-image]][travis-url]
+[![tests][tests-image]][tests-url]
 [![npm][npm-image]][npm-url]
 [![downloads][downloads-image]][downloads-url]
 
@@ -148,8 +148,8 @@ $ semistandard --verbose | snazzy
 
 See [standard/standard] for more information.
 
-[travis-image]: https://img.shields.io/travis/standard/semistandard.svg?style=flat-square
-[travis-url]: https://travis-ci.org/standard/semistandard
+[tests-image]: https://github.com/standard/semistandard/actions/workflows/test.yml/badge.svg
+[tests-url]: https://github.com/standard/semistandard/actions/workflows/test.yml
 [npm-image]: https://img.shields.io/npm/v/semistandard.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/semistandard
 [downloads-image]: https://img.shields.io/npm/dm/semistandard.svg?style=flat-square
