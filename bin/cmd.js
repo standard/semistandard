@@ -1,4 +1,7 @@
 #!/usr/bin/env node
 
-const opts = require('../options.js')
-require('standard-engine').cli(opts)
+import('standard-engine').then(function (semiStandardEngine) {
+  import('../options.js').then(function (options) {
+    semiStandardEngine.cli(options.default)
+  })
+})

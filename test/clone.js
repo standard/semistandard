@@ -8,15 +8,16 @@
  * VERSION BUMP.)
  */
 
-const cp = require('child_process')
-const mkdirp = require('mkdirp')
-const path = require('path')
-const rimraf = require('rimraf')
-const series = require('run-series')
-const test = require('tape')
+import cp from 'node:child_process'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
+import mkdirp from 'mkdirp'
+import rimraf from 'rimraf'
+import series from 'run-series'
+import test from 'tape'
 
-const TMP = path.join(__dirname, '..', 'tmp')
-const SEMISTANDARD = path.join(__dirname, '..', 'bin', 'cmd.js')
+const TMP = fileURLToPath(new URL('../tmp', import.meta.url))
+const SEMISTANDARD = fileURLToPath(new URL('../bin/cmd.js', import.meta.url))
 
 // const URLS = require('./semistandard-repos.json')
 const URLS = [

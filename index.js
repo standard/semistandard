@@ -1,7 +1,8 @@
 /*! semistandard. MIT License. Feross Aboukhadijeh <https://feross.org/opensource> */
 // programmatic usage
-const Linter = require('standard-engine').linter
+import engine from 'standard-engine'
+import opts from './options.js'
 
-const opts = require('./options.js')
+const Linter = engine.linter
 
-module.exports = new Linter(opts)
+export default new Linter(opts)
