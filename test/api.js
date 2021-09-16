@@ -9,7 +9,7 @@ test('api usage', function (t) {
   semistandard.lintFiles(['bin/cmd.js'], {}, function (err, result) {
     t.error(err, 'no error while linting')
     t.equal(typeof result, 'object', 'result is an object')
-    t.equal(result.errorCount, 3, 'error count 3')
+    t.equal(result.errorCount, 7, 'error count 7')
 
     t.equal(resolve(result.results[0].filePath), filePath, 'error filepath correct')
     t.equal(result.results[0].messages[0].message, 'Missing semicolon.', 'first missing semicolon message')
