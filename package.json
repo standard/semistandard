@@ -14,23 +14,23 @@
     "url": "https://github.com/standard/semistandard/issues"
   },
   "dependencies": {
-    "eslint": "^7.27.0",
-    "eslint-config-semistandard": "16.0.0",
-    "eslint-config-standard": "16.0.3",
-    "eslint-config-standard-jsx": "10.0.0",
-    "eslint-plugin-import": "^2.22.1",
+    "eslint": "^7.32.0",
+    "eslint-config-semistandard": "^16.0.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-config-standard-jsx": "^10.0.0",
+    "eslint-plugin-import": "^2.24.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
-    "eslint-plugin-react": "~7.21.5",
-    "standard-engine": "^14.0.0"
+    "eslint-plugin-react": "^7.25.1",
+    "standard-engine": "^14.0.1"
   },
   "devDependencies": {
-    "merge": "^1.2.1",
+    "merge": "^2.1.1",
     "mkdirp": "^1.0.4",
     "rimraf": "^3.0.2",
     "run-series": "^1.1.9",
-    "standard": "*",
-    "tape": "^5.0.1",
+    "standard": "^16.0.3",
+    "tape": "^5.3.1",
     "xtend": "^4.0.2"
   },
   "engines": {
