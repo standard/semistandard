@@ -9,7 +9,6 @@
  */
 
 const cp = require('child_process')
-const extend = require('xtend')
 const mkdirp = require('mkdirp')
 const path = require('path')
 const rimraf = require('rimraf')
@@ -65,7 +64,7 @@ test('lint repos', function (t) {
 })
 
 function spawn (command, args, opts, cb) {
-  const child = cp.spawn(command, args, extend({ stdio: 'inherit' }, opts))
+  const child = cp.spawn(command, args, Object.assign({ stdio: 'inherit' }, opts))
   child.on('error', cb)
   child.on('close', function (code) {
     if (code !== 0) cb(new Error('non-zero exit code: ' + code))
