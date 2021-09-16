@@ -33,7 +33,7 @@
     "tape": "^5.3.1"
   },
   "engines": {
-    "node": ">=10.12.0"
+    "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
   },
   "homepage": "https://github.com/standard/semistandard",
   "keywords": [
@@ -65,6 +65,7 @@
   ],
   "license": "MIT",
   "main": "index.js",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/standard/semistandard.git"
