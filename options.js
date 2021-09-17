@@ -1,15 +1,19 @@
-const path = require('path')
-const pkg = require('./package.json')
+import { fileURLToPath } from 'node:url'
+import { readFileSync } from 'node:fs'
+import eslint from 'eslint'
 
-module.exports = {
+const pkgUrl = new URL('./package.json', import.meta.url)
+const pkg = JSON.parse(readFileSync(pkgUrl, 'utf-8'))
+
+export default {
   // cmd, homepage, bugs all pulled from package.json
   cmd: 'semistandard',
   version: pkg.version,
   homepage: pkg.homepage,
   bugs: pkg.bugs.url,
   tagline: 'Semicolons For All!',
-  eslint: require('eslint'),
+  eslint,
   eslintConfig: {
-    configFile: path.join(__dirname, 'eslintrc.json')
+    configFile: fileURLToPath(new URL('eslintrc.json', import.meta.url))
   }
 }

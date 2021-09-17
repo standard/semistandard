@@ -1,4 +1,8 @@
-name: Test
+# Special test for the oldest version of Node.js that we "support"
+# even though the linter won't actually run. Test that the command
+# line program exits cleanly.
+
+name: Old test
 
 on:
   push:
@@ -12,20 +16,19 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.20.0, 14.13.1, 16.0.0]
-      fail-fast: false
+        node-version: [0.10.48]
 
     steps:
       - name: Checkout project
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.3.4
 
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v2.4.0
         with:
           node-version: ${{ matrix.node-version }}
 
       - name: Cache Node dependencies
-        uses: actions/cache@v2.1.5
+        uses: actions/cache@v2.1.6
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package.json') }}
@@ -35,5 +38,6 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run tests
-        run: npm test
+      - name: Test that the command line program exits cleanly.
+        run: ./bin/cmd.js
+        shell: bash
