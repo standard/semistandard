@@ -25,6 +25,7 @@
     "standard-engine": "^14.0.1"
   },
   "devDependencies": {
+    "installed-check": "^6.0.3",
     "merge": "^2.1.1",
     "mkdirp": "^1.0.4",
     "rimraf": "^3.0.2",
@@ -33,7 +34,7 @@
     "tape": "^5.3.1"
   },
   "engines": {
-    "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
+    "node": "^12.22.0 || ^14.17.0 || >=16.0.0"
   },
   "homepage": "https://github.com/standard/semistandard",
   "keywords": [
@@ -71,7 +72,7 @@
     "url": "https://github.com/standard/semistandard.git"
   },
   "scripts": {
-    "test": "standard && tape test/*.js"
+    "test": "standard && installed-check --engine-check --engine-no-dev && tape test/*.js"
   },
   "standard": {
     "ignore": "tmp/**"
