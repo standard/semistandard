@@ -22,7 +22,7 @@
     "eslint-plugin-n": "^15.2.4",
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.30.1",
-    "standard-engine": "^14.0.1"
+    "standard-engine": "^15.0.0"
   },
   "devDependencies": {
     "installed-check": "^6.0.3",
