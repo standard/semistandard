@@ -1,19 +1,21 @@
-import { fileURLToPath } from 'node:url'
 import { readFileSync } from 'node:fs'
+import { fileURLToPath } from 'node:url'
 import eslint from 'eslint'
 
-const pkgUrl = new URL('./package.json', import.meta.url)
-const pkg = JSON.parse(readFileSync(pkgUrl, 'utf-8'))
+// eslintConfig.overrideConfigFile have problem reading URLs and file:///
+const overrideConfigFile = fileURLToPath(new URL('./eslintrc.json', import.meta.url))
+const pkgURL = new URL('./package.json', import.meta.url)
+const pkgJSON = readFileSync(pkgURL, { encoding: 'utf-8' })
+const pkg = JSON.parse(pkgJSON)
 
 export default {
-  // cmd, homepage, bugs all pulled from package.json
-  cmd: 'semistandard',
-  version: pkg.version,
-  homepage: pkg.homepage,
   bugs: pkg.bugs.url,
-  tagline: 'Semicolons For All!',
+  cmd: 'semistandard',
   eslint,
   eslintConfig: {
-    configFile: fileURLToPath(new URL('eslintrc.json', import.meta.url))
-  }
+    overrideConfigFile
+  },
+  homepage: pkg.homepage,
+  tagline: 'Semicolons For All!',
+  version: pkg.version
 }
